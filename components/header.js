@@ -31,15 +31,19 @@ export default function Header({ myMenu }) {
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
                 <div className='container flex justify-between items-center py-6'>
-                    <div className='relative w-48 h-24'>
-                        <Image
-                            src={'/TDPLogo.webp'}
-                            alt='The Difference Principle Logo'
-                            objectFit='contain'
-                            layout='fill'
-                            quality={100}
-                        />
-                    </div>
+                <Link href={'/'}>
+                    <a>
+                        <div className='relative w-48 h-24'>
+                            <Image
+                                src={'/TDPLogo.webp'}
+                                alt='The Difference Principle Logo'
+                                objectFit='contain'
+                                layout='fill'
+                                quality={100}
+                            />
+                        </div>
+                    </a>
+                </Link>
                     <div className='flex w-fit text-justice-gray gap-5 h-fit'>
                         {myMenu.menuItems.nodes.map((el) => (
                             <Link href={el.path} key={el.id}>
