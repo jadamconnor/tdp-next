@@ -50,6 +50,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
             <div className='relative w-full h-[400px]'>
                 <Image
                     src={servicesFields.heroImage.sourceUrl}
+                    alt={servicesFields.heroImage.altText}
                     objectFit='cover'
                     layout='fill'
                     quality={100}

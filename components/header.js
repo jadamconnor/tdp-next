@@ -34,6 +34,7 @@ export default function Header({ myMenu }) {
                     <div className='relative w-48 h-24'>
                         <Image
                             src={'/TDPLogo.webp'}
+                            alt='The Difference Principle Logo'
                             objectFit='contain'
                             layout='fill'
                             quality={100}

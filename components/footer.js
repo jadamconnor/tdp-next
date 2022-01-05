@@ -53,6 +53,7 @@ export default function Footer({ myMenu, services }) {
                     <div className='relative h-full w-14'>
                         <Image
                             src='/FooterTDPIcon.png'
+                            alt='The Difference Principle Icon'
                             objectFit='contain'
                             layout='fill'
                             quality={100}

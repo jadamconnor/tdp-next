@@ -6,6 +6,7 @@ export default function RichCta({ myFields }) {
         <div className='relative w-full h-[400px]'>
             <Image
                 src={myFields[0].backgroundImage.sourceUrl}
+                alt={myFields[0].backgroundImage.altText}
                 objectFit='cover'
                 layout='fill'
                 quality={100}

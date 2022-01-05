@@ -49,6 +49,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             <div className='relative w-full h-[500px]'>
                 <Image
                     src={richHeroImage}
+                    alt={homeFields?.richHero[0].backgroundImage.altText}
                     objectFit='cover'
                     layout='fill'
                     quality={100}
