@@ -1,5 +1,4 @@
 import { getJobOpenings, getCareersPageFields, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
-import Openings from '../components/openings'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import FilterBar from '../components/filter-bar'
@@ -25,16 +24,6 @@ export async function getStaticProps() {
 
 export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services }) {
 
-    const [ openings, setOpenings ] = useState(null)
-
-    useEffect(() => {
-        setOpenings(jobOpenings)
-    }, [])
-
-    const filter = (arr) => {
-        setOpenings(arr)
-    }
-
     return (
         <div>
             <Header myMenu={primaryNav}/>
@@ -48,13 +37,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                     </div>
                 </div>
             </div>
-            <FilterBar jobOpenings={jobOpenings} onFilter={filter}/>
-            <div className='container'>
-                <div className='text-5xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-8'>
-                    Current Positions
-                </div>
-            </div>
-            <Openings openings={openings || jobOpenings}/>
+            <FilterBar jobOpenings={jobOpenings}/>
             <Footer myMenu={footerNav} services={services}/>
         </div>
     )

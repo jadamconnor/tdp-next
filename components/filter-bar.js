@@ -1,15 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Openings from './openings'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/pro-light-svg-icons'
 import { faTimes } from '@fortawesome/pro-solid-svg-icons'
 
 let chipsArr = []
 
-export default function FilterBar({ jobOpenings, onFilter }) {
+export default function FilterBar({ jobOpenings }) {
 
     const [ showPrograms, setShowPrograms ] = useState(false)
     const [ showLocations, setShowLocations ] = useState(false)
     const [ chips, setChips ] = useState([])
+    const [ openings, setOpenings ] = useState(null)
+
+    useEffect(() => {
+        setOpenings(jobOpenings)
+    }, [])
+
+    const filter = (arr) => {
+        setOpenings(arr)
+    }
 
     const toggleShowPrograms = () => {
         setShowPrograms(!showPrograms)
@@ -53,13 +63,14 @@ export default function FilterBar({ jobOpenings, onFilter }) {
             .concat(jobOpenings.filter((opening) => opening.openingFields.location.some((el) => el.location === chip)))))
             // Now we remove duplicate openings from array
             arr = [...new Map(arr.map(v => [v.id, v])).values()]
-            onFilter(arr)
+            setOpenings(arr)
         } else {
-            onFilter(jobOpenings)
+            setOpenings(jobOpenings)
         }
     }
 
     return (
+        <div>
         <div className='container px-6 xl:px-0 my-12'>
             <div className='flex gap-3 my-6 h-8'>
                 {chips.length > 0 &&
@@ -116,6 +127,13 @@ export default function FilterBar({ jobOpenings, onFilter }) {
                     </div>
                 </div>
             </div>
+        </div>
+        <div className='container'>
+            <div className='text-5xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-8'>
+                Current Positions
+            </div>
+        </div>
+        <Openings openings={openings || jobOpenings} onAddChip={addChip}/>
         </div>
     )
 }

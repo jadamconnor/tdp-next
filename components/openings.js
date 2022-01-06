@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Openings({ openings }) {
+export default function Openings({ openings, onAddChip }) {
     return (
         <div className='container'>
             {openings.map((el) => (
@@ -41,9 +41,9 @@ export default function Openings({ openings }) {
                             <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                                 Program:
                             </div>
-                            <div className='col-span-3 text-justice-stone text-sm'>
+                            <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
                                 {el.openingFields.programTypes.map((e, index) => (
-                                    <div key={Object.keys(e)}>
+                                    <div onClick={() => onAddChip(e.programType)} key={Object.keys(e)}>
                                         {index !== el.openingFields.programTypes.length - 1 ?
                                             <span>{e.programType}, </span>
                                         :
@@ -55,9 +55,9 @@ export default function Openings({ openings }) {
                             <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                                 Location:
                             </div>
-                            <div className='col-span-3 text-justice-stone text-sm'>
+                            <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
                                 {el.openingFields.location.map((e, index) => (
-                                    <div key={Object.keys(e)}>
+                                    <div onClick={() => onAddChip(e.location)} key={Object.keys(e)}>
                                         {index !== el.openingFields.location.length - 1 ?
                                             <span>{e.location}, </span>
                                         :
