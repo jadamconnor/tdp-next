@@ -23,54 +23,16 @@ export async function getStaticProps() {
     }
 }
 
-let chipsArr = []
-
 export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services }) {
-    
+
     const [ openings, setOpenings ] = useState(null)
-    const [ chips, setChips ] = useState([])
 
     useEffect(() => {
         setOpenings(jobOpenings)
     }, [])
 
-    let locations = []
-    jobOpenings.forEach((opening) => {
-        opening.openingFields.location.map((el) => {
-            !locations.includes(el.location) && locations.push(el.location)
-        })
-    })
-
-    let programTypes = []
-    jobOpenings.forEach((opening) => {
-        opening.openingFields.programTypes.map((el) => {
-            !programTypes.includes(el.programType) && programTypes.push(el.programType)
-        })
-    })
-
-    const addChip = (term) => {
-        !chipsArr.some((el) => el === term) && chipsArr.push(term)
-        setChips(chipsArr)
-        filter()
-    }
-
-    const removeChip = (term) => {
-        chipsArr = chipsArr.filter((chip) => chip !== term)
-        setChips(chipsArr)
-        filter()
-    }
-    
-    const filter = () => {
-        let arr = []
-        if (chipsArr.length > 0) {
-            // We're iterating over chips and filtering out job openings whose locations or program types match those chips' terms
-            // then we're storing those openings in an array and finally setting openings state to the array
-            chipsArr.map((chip) => arr.push(...jobOpenings.filter((opening) => opening.openingFields.programTypes.some((el) => el.programType === chip))
-            .concat(jobOpenings.filter((opening) => opening.openingFields.location.some((el) => el.location === chip)))))
-            setOpenings(arr)
-        } else {
-            setOpenings(jobOpenings)
-        }
+    const filter = (arr) => {
+        setOpenings(arr)
     }
 
     return (
@@ -86,7 +48,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                     </div>
                 </div>
             </div>
-            <FilterBar programs={programTypes} locations={locations} onAddChip={addChip} chips={chips} onRemoveChip={removeChip}/>
+            <FilterBar jobOpenings={jobOpenings} onFilter={filter}/>
             <div className='container'>
                 <div className='text-5xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-8'>
                     Current Positions

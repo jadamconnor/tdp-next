@@ -3,16 +3,60 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/pro-light-svg-icons'
 import { faTimes } from '@fortawesome/pro-solid-svg-icons'
 
-export default function FilterBar({ programs, locations, chips, onAddChip, onRemoveChip }) {
+let chipsArr = []
+
+export default function FilterBar({ jobOpenings, onFilter }) {
 
     const [ showPrograms, setShowPrograms ] = useState(false)
     const [ showLocations, setShowLocations ] = useState(false)
+    const [ chips, setChips ] = useState([])
 
     const toggleShowPrograms = () => {
         setShowPrograms(!showPrograms)
     }
     const toggleShowLocations = () => {
         setShowLocations(!showLocations)
+    }
+
+    let locations = []
+    jobOpenings.forEach((opening) => {
+        opening.openingFields.location.map((el) => {
+            !locations.includes(el.location) && locations.push(el.location)
+        })
+    })
+
+    let programTypes = []
+    jobOpenings.forEach((opening) => {
+        opening.openingFields.programTypes.map((el) => {
+            !programTypes.includes(el.programType) && programTypes.push(el.programType)
+        })
+    })
+
+    const addChip = (term) => {
+        !chipsArr.some((el) => el === term) && chipsArr.push(term)
+        setChips(chipsArr)
+        filter()
+    }
+
+    const removeChip = (term) => {
+        chipsArr = chipsArr.filter((chip) => chip !== term)
+        setChips(chipsArr)
+        filter()
+    }
+    
+    const filter = () => {
+        let arr = []
+        if (chipsArr.length > 0) {
+            // We're iterating over chips and filtering out job openings whose locations or program types match those chips' terms,
+            // then we're storing those openings in an array and finally setting openings state to the array
+            chipsArr.map((chip) => arr.push(...jobOpenings.filter((opening) => opening.openingFields.programTypes.some((el) => el.programType === chip))
+            .concat(jobOpenings.filter((opening) => opening.openingFields.location.some((el) => el.location === chip)))))
+            // Now we remove duplicate openings from array
+            arr = [...new Map(arr.map(v => [v.id, v])).values()]
+            onFilter(arr)
+        } else {
+            onFilter(jobOpenings)
+        }
     }
 
     return (
@@ -24,7 +68,7 @@ export default function FilterBar({ programs, locations, chips, onAddChip, onRem
                             <div>
                                 {chip}
                             </div>
-                            <div className='text-gray-500 text-xs font-bold cursor-pointer' onClick={() => onRemoveChip(chip)}>
+                            <div className='text-gray-500 text-xs font-bold cursor-pointer' onClick={() => removeChip(chip)}>
                                 <FontAwesomeIcon icon={faTimes}/>
                             </div>
                         </div>
@@ -46,8 +90,8 @@ export default function FilterBar({ programs, locations, chips, onAddChip, onRem
                         <FontAwesomeIcon icon={faCaretDown}/>
                     </div>
                     <div className={`absolute bg-white w-max top-6 left-0 p-3 ${!showPrograms && 'hidden'}`}>
-                        {programs.map((el) => (
-                            <div className='cursor-pointer mb-3' onClick={() => {setShowPrograms(false), onAddChip(el)}} key={el}>
+                        {programTypes.map((el) => (
+                            <div className='cursor-pointer mb-3' onClick={() => {setShowPrograms(false), addChip(el)}} key={el}>
                                 {el}
                             </div>
                         ))}
@@ -65,7 +109,7 @@ export default function FilterBar({ programs, locations, chips, onAddChip, onRem
                     </div>
                     <div className={`absolute bg-white w-max top-6 left-0 p-3 ${!showLocations && 'hidden'}`}>
                         {locations.map((el) => (
-                            <div className='cursor-pointer mb-3' onClick={() => {setShowLocations(false), onAddChip(el)}} key={el}>
+                            <div className='cursor-pointer mb-3' onClick={() => {setShowLocations(false), addChip(el)}} key={el}>
                                 {el}
                             </div>
                         ))}
