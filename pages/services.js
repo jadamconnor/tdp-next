@@ -38,7 +38,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
         <div>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='container mx-6 xl:mx-0'>
+            <div className='container px-6 xl:px-0'>
                 <div className='w-full lg:w-1/2 my-28'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {servicesFields.intro[0].heading}

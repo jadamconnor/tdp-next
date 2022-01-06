@@ -31,7 +31,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
         <div>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='container px-6 xl:px-0px-6 xl:px-0'>
+            <div className='container px-6 xl:px-0'>
                 <div className='w-full lg:w-1/2 my-28'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {aboutFields.intro[0].heading}
