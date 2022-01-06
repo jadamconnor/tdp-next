@@ -3,7 +3,7 @@ import { getServicesPageFields, getRichCTAS, getPrimaryMenu, getFooterMenu, getS
 import Image from 'next/image'
 import Footer from '../components/footer'
 import Header from '../components/header'
-import Accordion from '../components/accordion'
+import ServicesAccordion from '../components/services-accordion'
 import RichCta from '../components/rich-cta'
 
 export async function getStaticProps() {
@@ -37,16 +37,18 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
     return (
         <div>
             <Header myMenu={primaryNav}/>
+            {/* Intro */}
             <div className='container'>
                 <div className='w-1/2 my-28'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
-                        {servicesFields.pageLeadIn[0].heading}
+                        {servicesFields.intro[0].heading}
                     </div>
                     <div className='text-justice-stone text-3xl'>
-                        {servicesFields.pageLeadIn[0].body}
+                        {servicesFields.intro[0].body}
                     </div>
                 </div>
             </div>
+            {/* Hero */}
             <div className='relative w-full h-[400px]'>
                 <Image
                     src={servicesFields.heroImage.sourceUrl}
@@ -55,13 +57,18 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
                     layout='fill'
                     quality={100}
                     priority
+                    placeholder='blur'
+                    // Work-around for no out-of-box dataUrl
+                    blurDataURL={`/_next/image?url=${servicesFields.heroImage.sourceUrl}&w=16&q=1`}
                 />
             </div>
+            {/* Services */}
             <div className='container my-28'>
                 {services.map((service) => (
-                    <Accordion service={service} key={service.id}/>
+                    <ServicesAccordion service={service} key={service.id}/>
                 ))}
             </div>
+            {/* CTA */}
             <RichCta myFields={joinCTA}/>
             <Footer myMenu={footerNav} services={services}/>
         </div>

@@ -9,6 +9,9 @@ module.exports = {
           'sans': ['Source Sans Pro'],
           'serif': ['Domine']
       },
+      transitionProperty: {
+        'height': 'height'
+      },
       container: {
           center: true,
       },

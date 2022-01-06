@@ -53,6 +53,9 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     objectFit='cover'
                     layout='fill'
                     quality={100}
+                    placeholder='blur'
+                    // Work-around for no out-of-box dataUrl
+                    blurDataURL={`/_next/image?url=${richHeroImage}&w=16&q=1`}
                     priority
                 />
                 <div className='absolute h-full w-full top-0 bottom-0 bg-gradient-to-r from-yellow-500 to-cyan-500 mix-blend-multiply opacity-40'>

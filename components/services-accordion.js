@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons'
+import { faCaretDown, faCaretUp } from '@fortawesome/pro-solid-svg-icons'
 
-export default function Accordion({ service }) {
+export default function ServicesAccordion({ service }) {
 
     const [isShowing, setIsShowing] = useState(false)
 
@@ -35,12 +35,7 @@ export default function Accordion({ service }) {
                 </div>
             </div>
             <div 
-                className={
-                    isShowing ? 
-                        'grid grid-cols-2 w-full text-justice-stone col-span-1 items-center gap-x-16 mb-12 h-fit transition-all ease-in-out duration-600' 
-                    : 
-                        'grid grid-cols-2 w-full text-justice-stone col-span-1 items-center gap-x-16 h-0 transition-all ease-in-out duration-600'
-                }
+                className={`grid grid-cols-2 w-full text-justice-stone col-span-1 items-center gap-x-16 transition-height ease-in-out duration-300 ${isShowing ? 'h-fit mb-12' : 'h-0'}`}
             >
                 {service.responsibilities.map((el) => (
                     <div className={isShowing ? 'flex flex-wrap items-center text-lg uppercase border-b border-b-justice-blue h-full py-2' : 'hidden'} key={el.label}>
@@ -63,7 +58,7 @@ export default function Accordion({ service }) {
                     </div>
                 ))}
             </div>
-            <div className='flex justify-center'>
+            <div className={isShowing ? 'hidden justify-center' : 'flex justify-center'}>
                 <div
                     onClick={() => toggle()} 
                     className='text-base text-justice-blue cursor-pointer'
@@ -71,6 +66,17 @@ export default function Accordion({ service }) {
                     MORE
                     <div className='flex justify-center text-2xl text-justice-blue'>
                         <FontAwesomeIcon icon={faCaretDown}/>
+                    </div>
+                </div>
+            </div>
+            <div className={isShowing ? 'flex justify-center' : 'hidden justify-center'}>
+                <div
+                    onClick={() => toggle()} 
+                    className='text-base text-justice-blue cursor-pointer'
+                >
+                    LESS
+                    <div className='flex justify-center text-2xl text-justice-blue'>
+                        <FontAwesomeIcon icon={faCaretUp}/>
                     </div>
                 </div>
             </div>
