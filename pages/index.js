@@ -128,7 +128,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* About CTA */}
             <RichCta myFields={contactCTA}/>
             {/* News Preview */}
-            <div className='container px-6 xl:px-0my-14 px-6 xl:px-0'>
+            <div className='container my-14 px-6 xl:px-0'>
                 <div className='font-serif text-3xl w-fit border-b border-b-black pb-3'>
                     Recent News
                 </div>
