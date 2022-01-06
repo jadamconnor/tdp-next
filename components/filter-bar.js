@@ -17,10 +17,6 @@ export default function FilterBar({ jobOpenings }) {
         setOpenings(jobOpenings)
     }, [])
 
-    const filter = (arr) => {
-        setOpenings(arr)
-    }
-
     const toggleShowPrograms = () => {
         setShowPrograms(!showPrograms)
     }
