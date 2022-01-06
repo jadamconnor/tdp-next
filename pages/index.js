@@ -93,7 +93,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </div>
             </div>
             {/* Services */}
-            <div className='container px-6 xl:px-0grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 xl:px-0'>
+            <div className='container grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 xl:px-0'>
                 {services.map((el) => (
                         <div className='flex flex-wrap justify-center py-8' key={el.id}>
                             <div className='w-12 h-12 bg-justice-blue rounded-full mb-4'>
