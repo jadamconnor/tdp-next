@@ -1,0 +1,15 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+@import '../styles/unreset.scss';
+
+body {
+  font-family: 'Source Sans Pro';
+}
+
+*, :after, :before {
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+  box-sizing: inherit;
+  word-break: break-word;
+}

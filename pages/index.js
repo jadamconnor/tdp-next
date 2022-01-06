@@ -80,7 +80,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             </div>
             {/* Lead-in */}
             <div className='bg-justice-blue'>
-                <div className='container px-6 xl:px-0flex items-center justify-center px-6 xl:px-0'>
+                <div className='container flex items-center justify-center px-6 xl:px-0'>
                     <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
@@ -89,7 +89,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* Contact CTA */}
             <div className='bg-justice-stone'>
                 <div className='flex justify-center text-white text-xl py-5 px-6 xl:px-0'>
-                    <div dangerouslySetInnerHTML={{__html: homeFields.contactCta}} />
+                    <div className='unreset' dangerouslySetInnerHTML={{__html: homeFields.contactCta}} />
                 </div>
             </div>
             {/* Services */}
