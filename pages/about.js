@@ -31,8 +31,8 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
         <div>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='container'>
-                <div className='w-1/2 my-28'>
+            <div className='container px-6 xl:px-0px-6 xl:px-0'>
+                <div className='w-full lg:w-1/2 my-28'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {aboutFields.intro[0].heading}
                     </div>
@@ -64,7 +64,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 </div>
             </div>
             {/* Motivations */}
-            <div className='container py-14'>
+            <div className='container px-6 xl:px-0 my-14'>
                 <div className='flex justify-center'>
                     <div className='text-3xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-6'>
                         {aboutFields.motivations[0].heading}
@@ -77,43 +77,45 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 </div>
             </div>
             {/* Our History */}
-            <div className='container py-14'>
+            <div className='container px-6 xl:px-0 my-14'>
                 <AboutAccordion copy={aboutFields.ourHistory[0]}/>
             </div>
             {/* Bios */}
-            <div className='flex justify-center'>
-                <div className='text-3xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-6'>
-                    {aboutFields.executiveTeam[0].heading}
-                </div>
-            </div>
-            <div className='container grid grid-cols-4 gap-12 py-14'>
-                {aboutFields.executiveTeam[0].bioCard.map((el) => (
-                    <div className='relative w-full' key={el.name}>
-                        <div className='relative w-full h-80 mb-5'>
-                            <Image
-                                className=' rounded-2xl'
-                                src={el.image.sourceUrl}
-                                alt={el.image.altText}
-                                objectFit='cover'
-                                layout='fill'
-                                quality={100}
-                                priority
-                                placeholder='blur'
-                                // Work-around for no out-of-box dataUrl
-                                blurDataURL={`/_next/image?url=${el.image.sourceUrl}&w=16&q=1`}
-                            />
-                        </div>
-                        <div className='text-justice-blue text-xl font-serif mb-2'>
-                            {el.name}
-                        </div>
-                        <div className='text-justice-stone text-base mb-2'>
-                            {el.title}
-                        </div>
-                        <div className='text-justice-blue text-base mb-2'>
-                            {el.email}
-                        </div>
+            <div className='container px-6 xl:px-0 my-14'>
+                <div className='flex justify-center'>
+                    <div className='text-3xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1'>
+                        {aboutFields.executiveTeam[0].heading}
                     </div>
-                ))}
+                </div>
+                <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-12 py-10'>
+                    {aboutFields.executiveTeam[0].bioCard.map((el) => (
+                        <div className='relative w-full' key={el.name}>
+                            <div className='relative w-full h-80 mb-5'>
+                                <Image
+                                    className=' rounded-2xl'
+                                    src={el.image.sourceUrl}
+                                    alt={el.image.altText}
+                                    objectFit='cover'
+                                    layout='fill'
+                                    quality={100}
+                                    priority
+                                    placeholder='blur'
+                                    // Work-around for no out-of-box dataUrl
+                                    blurDataURL={`/_next/image?url=${el.image.sourceUrl}&w=16&q=1`}
+                                />
+                            </div>
+                            <div className='text-justice-blue text-xl font-serif mb-2'>
+                                {el.name}
+                            </div>
+                            <div className='text-justice-stone text-base mb-2'>
+                                {el.title}
+                            </div>
+                            <div className='text-justice-blue text-base mb-2'>
+                                {el.email}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
             {/* Employment CTA */}
             <RichCta myFields={employmentCTA}/>

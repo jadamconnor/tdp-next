@@ -7,8 +7,8 @@ export default function Footer({ myMenu, services }) {
     console.log(services)
     return (
         <div className='bg-justice-gray w-full py-14'>
-            <div className='container grid grid-cols-5 gap-5'>
-                <div>
+            <div className='container px-6 xl:px-0 grid md:grid-cols-5 gap-5'>
+                <div className='mb-6 md:mb-0'>
                     <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                         CONTENT
                     </div>
@@ -22,8 +22,8 @@ export default function Footer({ myMenu, services }) {
                         </div>
                     ))}
                 </div>
-                <div className='flex flex-col justify-between'>
-                    <div>
+                <div className='flex flex-col justify-between mb-6 md:mb-0'>
+                    <div className='mb-6 md:mb-0'>
                         <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                             FOLLOW US
                         </div>
@@ -33,7 +33,7 @@ export default function Footer({ myMenu, services }) {
                             <FontAwesomeIcon icon={faLinkedin}/>
                         </div>
                     </div>
-                    <div>
+                    <div className='mb-6 md:mb-0'>
                         <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                             ADMINISTRATION
                         </div>
@@ -49,7 +49,7 @@ export default function Footer({ myMenu, services }) {
                         </div>
                     </div>
                 </div>
-                <div className='flex text-center justify-center h-full'>
+                <div className='hidden md:flex text-center justify-center h-full mb-6 md:mb-0'>
                     <div className='relative h-full w-14'>
                         <Image
                             src='/FooterTDPIcon.png'
@@ -60,7 +60,7 @@ export default function Footer({ myMenu, services }) {
                         />
                     </div>
                 </div>
-                <div>
+                <div className='mb-6 md:mb-0'>
                     <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                         SERVICES
                     </div>

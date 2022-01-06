@@ -12,12 +12,7 @@ export default function ServicesAccordion({ service }) {
 
     return (
         <div
-            className={
-                isShowing ? 
-                    'w-fit bg-stone-100 mx-auto mb-12 p-12 rounded-2xl transition-colors ease-in-out duration-500' 
-                : 
-                    'w-fit mx-auto mb-12 p-12 rounded-2xl transition-colors ease-in-out duration-500'
-            } 
+            className={`w-fit mx-auto mb-12 p-12 rounded-2xl transition-colors ease-in-out duration-500 ${isShowing && 'bg-stone-100'}`}
             key={service.id}
         >
             <div className='flex justify-center'>
@@ -35,7 +30,7 @@ export default function ServicesAccordion({ service }) {
                 </div>
             </div>
             <div 
-                className={`grid grid-cols-2 w-full text-justice-stone col-span-1 items-center gap-x-16 transition-height ease-in-out duration-300 ${isShowing ? 'h-fit mb-12' : 'h-0'}`}
+                className={`grid lg:grid-cols-2 w-full text-justice-stone col-span-1 items-center gap-x-16 transition-height ease-in-out duration-300 ${isShowing ? 'h-fit mb-12' : 'h-0'}`}
             >
                 {service.responsibilities.map((el) => (
                     <div className={isShowing ? 'flex flex-wrap items-center text-lg uppercase border-b border-b-justice-blue h-full py-2' : 'hidden'} key={el.label}>

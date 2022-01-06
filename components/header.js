@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/pro-solid-svg-icons'
 
 export default function Header({ myMenu }) {
     const [scrollY, setScrollY] = useState(0)
@@ -30,21 +32,21 @@ export default function Header({ myMenu }) {
                 : 
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
-                <div className='container flex justify-between items-center py-6'>
-                <Link href={'/'}>
-                    <a>
-                        <div className='relative w-48 h-24'>
-                            <Image
-                                src={'/TDPLogo.webp'}
-                                alt='The Difference Principle Logo'
-                                objectFit='contain'
-                                layout='fill'
-                                quality={100}
-                            />
-                        </div>
-                    </a>
-                </Link>
-                    <div className='flex w-fit text-justice-gray gap-5 h-fit'>
+                <div className='container px-6 xl:px-0 flex justify-between items-center py-6'>
+                    <Link href={'/'}>
+                        <a>
+                            <div className='relative w-48 h-24'>
+                                <Image
+                                    src={'/TDPLogo.webp'}
+                                    alt='The Difference Principle Logo'
+                                    objectFit='contain'
+                                    layout='fill'
+                                    quality={100}
+                                />
+                            </div>
+                        </a>
+                    </Link>
+                    <div className='hidden lg:flex w-fit text-justice-gray gap-5 h-fit'>
                         {myMenu.menuItems.nodes.map((el) => (
                             <Link href={el.path} key={el.id}>
                                 <a className='uppercase text-lg tracking-widest cursor-pointer'>
@@ -52,6 +54,9 @@ export default function Header({ myMenu }) {
                                 </a>
                             </Link>
                         ))}
+                    </div>
+                    <div className='flex lg:hidden w-fit text-justice-gray text-3xl gap-5 h-fit'>
+                        <FontAwesomeIcon icon={faBars}/>
                     </div>
                 </div>
             </div>

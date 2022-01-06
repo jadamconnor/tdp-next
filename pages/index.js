@@ -63,7 +63,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 <div className='absolute h-full w-full top-0 bottom-0 bg-gradient-to-r from-black to-cyan-200 mix-blend-multiply opacity-60'>
                 </div>
                 <div className='absolute flex flex-wrap items-center w-full h-full'>
-                    <div className='container px-6 xl:px-0'>
+                    <div className='container px-6 xl:px-0px-6 xl:px-0'>
                         <div className='lg:w-1/2'>
                             <div className='font-serif text-white text-5xl mb-6'>
                                 {richHeroHeading}
@@ -80,7 +80,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             </div>
             {/* Lead-in */}
             <div className='bg-justice-blue'>
-                <div className='container flex items-center justify-center px-6 xl:px-0'>
+                <div className='container px-6 xl:px-0flex items-center justify-center px-6 xl:px-0'>
                     <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
@@ -93,7 +93,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </div>
             </div>
             {/* Services */}
-            <div className='container grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 xl:px-0'>
+            <div className='container px-6 xl:px-0grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 xl:px-0'>
                 {services.map((el) => (
                         <div className='flex flex-wrap justify-center py-8' key={el.id}>
                             <div className='w-12 h-12 bg-justice-blue rounded-full mb-4'>
@@ -128,7 +128,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* About CTA */}
             <RichCta myFields={contactCTA}/>
             {/* News Preview */}
-            <div className='container my-14 px-6 xl:px-0'>
+            <div className='container px-6 xl:px-0my-14 px-6 xl:px-0'>
                 <div className='font-serif text-3xl w-fit border-b border-b-black pb-3'>
                     Recent News
                 </div>
