@@ -100,7 +100,7 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug 
                         </div>
                     </div>
                     <div className='flex my-8'>
-                        <Link href={'/'}>
+                    <Link href={`/apply/${el.slug}`}>
                             <a>
                                 <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
                                     APPLY

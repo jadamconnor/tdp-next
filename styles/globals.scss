@@ -1,11 +1,12 @@
+body {
+  font-family: 'Source Sans Pro';
+}
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 @import '../styles/unreset.scss';
 
-body {
-  font-family: 'Source Sans Pro';
-}
+
 
 *, :after, :before {
   -webkit-font-smoothing: antialiased;
