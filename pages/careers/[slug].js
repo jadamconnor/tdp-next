@@ -29,7 +29,6 @@ export async function getStaticPaths() {
 
 export default function JobOpening({ openingFields, primaryNav, footerNav, slug }) {
     openingFields = openingFields.filter((el) => el.slug === slug)
-    console.log(openingFields)
     
     return (
         <div>
