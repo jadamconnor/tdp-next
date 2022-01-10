@@ -7,7 +7,7 @@ export default function Footer({ myMenu, services }) {
     
     return (
         <div className='bg-justice-gray w-full py-14'>
-            <div className='container px-6 xl:px-0 grid md:grid-cols-5 gap-5'>
+            <div className='container grid md:grid-cols-5 gap-5'>
                 <div className='mb-6 md:mb-0'>
                     <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                         CONTENT

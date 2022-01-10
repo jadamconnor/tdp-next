@@ -32,7 +32,7 @@ export default function RichCta({ myFields }) {
             >
             </div>
             <div className='absolute w-full h-full'>
-                <div className='container grid grid-cols-4 h-full items-center gap-5 px-6 xl:px-0'>
+                <div className='container grid grid-cols-4 h-full items-center gap-5 '>
                     <div className={myFields[0].justify[0] === 'right' ? 'col-span-4 lg:col-span-2 lg:col-start-3' : 'col-span-4 lg:col-span-2'}>
                         <div className='font-serif text-white text-3xl w-fit pb-3 mb-3 border-b-white border-b'>
                             {myFields[0].heading}

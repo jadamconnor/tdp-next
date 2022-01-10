@@ -27,7 +27,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
     return (
         <div>
             <Header myMenu={primaryNav}/>
-            <div className='container px-6 xl:px-0'>
+            <div className='container '>
                 <div className='w-full lg:w-1/2 mt-28 mb-16'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {careersFields.intro[0].heading}

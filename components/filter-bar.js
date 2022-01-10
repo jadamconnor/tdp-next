@@ -67,7 +67,7 @@ export default function FilterBar({ jobOpenings }) {
 
     return (
         <div>
-        <div className='container px-6 xl:px-0 my-12'>
+        <div className='container  my-12'>
             <div className='flex gap-3 my-6 h-8'>
                 {chips.length > 0 &&
                     chips.map((chip) => (
