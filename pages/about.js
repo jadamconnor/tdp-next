@@ -19,7 +19,8 @@ export async function getStaticProps() {
             primaryNav: primaryNavMenu.menus.edges[0].node,
             footerNav: footerNavMenu.menus.edges[0].node,
             services: services
-        }
+        },
+        revalidate: 1
     }
 }
 
