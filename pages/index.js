@@ -77,7 +77,11 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                                         {richHeroCopy}
                                     </div>
                                     <div className='text-white font-semibold text-xl tracking-wider underline underline-offset-8 decoration-1'>
-                                        EXPLORE OUR SERVICES
+                                        <Link href={homeFields?.richHero[0].link}>
+                                            <a>
+                                                EXPLORE OUR SERVICES
+                                            </a>
+                                        </Link>
                                     </div>
                                 </div>
                         </div>
