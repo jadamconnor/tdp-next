@@ -29,6 +29,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homeFields, richCTAS, newsItems, primaryNav, footerNav, services }) {
+    console.log(newsItems)
 
     const richHeroImage = homeFields?.richHero[0].backgroundImage.sourceUrl
     const overlayImage = homeFields?.richHero[0].overlayImage.sourceUrl
@@ -169,7 +170,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                             {featNews[0].node.newsItemFields.published}
                         </div>
                     </div>
-                    {news.map((el) => (
+                    {news.slice(0,2).map((el) => (
                         <div className='lg:col-span-1' key={el.id}>
                             <div className='text-justice-blue text-2xl font-serif mb-2'>
                                 {el.node.newsItemFields.title}
