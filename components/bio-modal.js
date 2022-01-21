@@ -28,7 +28,7 @@ export default function BioModal({onClose, content}) {
                 <div className='font-serif text-justice-blue text-xl mb-1 tracking-wider font-bold'>
                     {content.name}
                 </div>
-                <div className='font-semibold text-base md:text-lg mb-5'>
+                <div className='text-base md:text-lg mb-5'>
                     {content.title}
                 </div>
                 <div className='modal' dangerouslySetInnerHTML={{__html: content.bio}}>
