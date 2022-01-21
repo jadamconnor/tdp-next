@@ -27,7 +27,6 @@ export default function RichCta({ myFields }) {
             <div className='absolute w-full h-full'>
                 <div className='container grid grid-cols-4 h-full items-center gap-5 px-6 md:px-0'>
                     <div className={myFields[0].justify[0] === 'right' ? 'col-span-4 lg:col-span-2 lg:col-start-3' : 'col-span-4 lg:col-span-2'}>
-                        <Fade direction={myFields[0].justify[0] === 'right' ? 'left' : 'right'} triggerOnce={true}>
                             <div className='font-serif text-white text-4xl w-fit mb-3 underline underline-offset-[12px] leading-[60px] decoration-1'>
                                 {myFields[0].heading}
                             </div>
@@ -41,7 +40,6 @@ export default function RichCta({ myFields }) {
                                     </div>
                                 </a>
                             </Link>
-                        </Fade>
                     </div>
                 </div>
             </div>
