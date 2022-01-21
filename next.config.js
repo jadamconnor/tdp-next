@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'devtdp.wpengine.com'],
+    domains: ['localhost', 'tdpprods.wpengine.com'],
   }
 }
