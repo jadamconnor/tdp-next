@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/pro-light-svg-icons'
 import { faTimes } from '@fortawesome/pro-solid-svg-icons'
 
-export default function onFilterBar({ chips, onAddChip, onRemoveChip, selectItems }) {
+export default function FilterBar({ chips, onAddChip, onRemoveChip, selectItems }) {
     
     const [shownDropdown, setShownDropdown] = useState({})
     
