@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import logo from '../public/TDPLogo.png'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/pro-solid-svg-icons'
@@ -45,7 +46,7 @@ export default function Header({ myMenu }) {
                             <a>
                                 <div className='relative w-40 h-24'>
                                     <Image
-                                        src={'/DPLogo.png'}
+                                        src={logo}
                                         alt='The Difference Principle Logo'
                                         objectFit='contain'
                                         layout='fill'
