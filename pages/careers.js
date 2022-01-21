@@ -1,8 +1,12 @@
 import { getJobOpenings, getCareersPageFields, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
+import Head from 'next/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import FilterBar from '../components/filter-bar'
+import Openings from '../components/openings'
 import { useState, useEffect } from 'react'
+
+let chipsArr = []
 
 export async function getStaticProps() {
     const careersFields = await getCareersPageFields()
@@ -25,10 +29,80 @@ export async function getStaticProps() {
 
 export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services }) {
 
+    const [ openings, setOpenings ] = useState(null)
+    const [ chips, setChips ] = useState([])
+
+    useEffect(() => {
+        setOpenings(jobOpenings)
+    }, [])
+
+    let locations = []
+    jobOpenings.forEach((opening) => {
+        opening.openingFields.location.map((el) => {
+            !locations.includes(el.location) && locations.push(el.location)
+        })
+    })
+
+    let programTypes = []
+    jobOpenings.forEach((opening) => {
+        opening.openingFields.programTypes.map((el) => {
+            !programTypes.includes(el.programType) && programTypes.push(el.programType)
+        })
+    })
+
+    let filterSelects = [
+        {
+            label: 'Locations',
+            items: locations,
+            id: locations
+        },
+        {
+            label: 'Program Type',
+            items: programTypes,
+            id: programTypes
+        },
+
+    ]
+
+    const addChip = (term) => {
+        !chipsArr.some((el) => el === term) && chipsArr.push(term)
+        setChips(chipsArr)
+        filter()
+    }
+
+    const removeChip = (term) => {
+        chipsArr = chipsArr.filter((chip) => chip !== term)
+        setChips(chipsArr)
+        filter()
+    }
+
+    // TODO: This should be generic and go in FilterBar. It should take any number of generic inputs that are structured so
+    // so they can be iterated over without knowledge of their property names. If we re-introduce categories to
+    // careers, will that achieve this?
+    const filter = () => {
+        let arr = []
+        if (chipsArr.length > 0) {
+            // We're iterating over chips and filtering out job openings whose locations or program types match those chips' terms,
+            // then we're storing those openings in an array and finally setting openings state to the array
+            chipsArr.map((chip) => arr.push(...jobOpenings.filter((opening) => opening.openingFields.programTypes.some((el) => el.programType === chip))
+            .concat(jobOpenings.filter((opening) => opening.openingFields.location.some((el) => el.location === chip)))))
+            // Now we remove duplicate openings from array
+            arr = [...new Map(arr.map(v => [v.id, v])).values()]
+            setOpenings(arr)
+        } else {
+            setOpenings(jobOpenings)
+        }
+    }
+
     return (
         <div>
+            <Head>
+                <title>Careers - The Difference Principle</title>
+                <meta name='description' content='The Difference Principle is an equal opportunity/affirmative action employer.' />
+                <link rel='icon' href='/favicon.ico' />
+            </Head>
             <Header myMenu={primaryNav}/>
-            <div className='container '>
+            <div className='container px-6 lg:px0'>
                 <div className='w-full lg:w-1/2 mt-28 mb-16'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {careersFields.intro[0].heading}
@@ -38,7 +112,13 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                     </div>
                 </div>
             </div>
-            <FilterBar jobOpenings={jobOpenings}/>
+            <FilterBar chips={chips} onAddChip={addChip} onRemoveChip={removeChip} selectItems={filterSelects} />
+            <div className='container px-6 md:px-0'>
+                <div className='text-5xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-[70px] decoration-1 pb-1 mb-5'>
+                    Current Positions
+                </div>
+            </div>
+            <Openings openings={openings || jobOpenings} onAddChip={addChip}/>
             <Footer myMenu={footerNav} services={services}/>
         </div>
     )

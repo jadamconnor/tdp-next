@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getServicesPageFields, getRichCTAS, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
+import Head from 'next/head'
 import Image from 'next/image'
 import Footer from '../components/footer'
 import Header from '../components/header'
@@ -37,9 +38,15 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
 
     return (
         <div>
+
+            <Head>
+                <title>Services - The Difference Principle</title>
+                <meta name='description' content='The Difference Principle provides all of the services needed to run business so you can focus on accomplishing your mission.' />
+                <link rel='icon' href='/favicon.ico' />
+            </Head>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='container '>
+            <div className='container px-6 md:px-0'>
                 <div className='w-full lg:w-1/2 my-28'>
                     <div className='text-5xl text-justice-stone font-serif mb-3'>
                         {servicesFields.intro[0].heading}
@@ -70,7 +77,9 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
                 ))}
             </div>
             {/* CTA */}
-            <RichCta myFields={joinCTA}/>
+            {/* V2?
+                <RichCta myFields={joinCTA}/>
+            */}
             <Footer myMenu={footerNav} services={services}/>
         </div>
     )

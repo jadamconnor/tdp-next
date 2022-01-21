@@ -14,9 +14,9 @@ export default function AboutAccordion({ copy }) {
         <div
             className={
                 isShowing ? 
-                    'w-fit mx-auto mb-12 p-12 rounded-2xl bg-stone-100' 
+                    'w-fit mx-auto mb-12 p-6 lg:p-12 rounded-2xl bg-stone-100' 
                 : 
-                    'w-fit mx-auto mb-12 p-12 rounded-2xl'
+                    'w-fit mx-auto mb-12 p-6 lg:p-12 rounded-2xl'
             }
         >
             <div className='flex justify-center'>
@@ -25,12 +25,12 @@ export default function AboutAccordion({ copy }) {
                 </div>
             </div>
             <div className='flex justify-center'>
-                <div className='text-center text-xl text-justice-stone mb-6'>
+                <div className='text-justify md:text-center text-xl text-justice-stone mb-6'>
                     {copy.bodyCollapsed}
                 </div>
             </div>
             <div className={`flex flex-col transition-height ease-in-out duration-300 ${isShowing ? 'h-full' : 'h-0'}`}>
-                <div dangerouslySetInnerHTML={{__html: copy.bodyExpanded}} className={`unreset px-8 text-xl text-justice-stone mb-6 transition-all ease-in-out duration-500 ${isShowing || 'text-justice-stone/0'}`}>
+                <div dangerouslySetInnerHTML={{__html: copy.bodyExpanded}} className={`unreset lg:px-8 text-xl text-justice-stone mb-6 transition-all ease-in-out duration-500 ${isShowing || 'text-justice-stone/0'}`}>
                 </div>
             </div>
             <div className={isShowing ? 'hidden justify-center' : 'flex justify-center'}>

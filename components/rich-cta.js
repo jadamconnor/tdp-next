@@ -1,9 +1,11 @@
-import Image from "next/image"
+import Image from 'next/image'
+import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
 
 export default function RichCta({ myFields }) {
 
     return (
-        <div className='relative w-full h-[400px]'>
+        <div className='relative w-full h-[400px] lg:h-[600px]'>
             <Image
                 src={myFields[0].backgroundImage.sourceUrl}
                 alt={myFields[0].backgroundImage.altText}
@@ -11,38 +13,35 @@ export default function RichCta({ myFields }) {
                 layout='fill'
                 quality={100}
                 priority
-                placeholder='blur'
-                // Work-around for no out-of-box dataUrl
-                blurDataURL={`/_next/image?url=${myFields[0].backgroundImage.sourceUrl}&w=16&q=1`}
             />
-            <div 
-                className={myFields[0].justify[0] === 'right' ?
-                    'absolute h-full w-full top-0 bottom-0 bg-gradient-to-r to-yellow-500 from-cyan-500 mix-blend-multiply opacity-40'
-                : 
-                    'absolute h-full w-full top-0 bottom-0 bg-gradient-to-r from-yellow-500 to-cyan-500 mix-blend-multiply opacity-40'
-                }
-            >
-            </div>
-            <div 
-                className={myFields[0].justify[0] === 'right' ?
-                    'absolute h-full w-full top-0 bottom-0 bg-gradient-to-r to-black from-cyan-200 mix-blend-multiply opacity-80'
-                :
-                    'absolute h-full w-full top-0 bottom-0 bg-gradient-to-r from-black to-cyan-200 mix-blend-multiply opacity-60'
-                }
-            >
-            </div>
+            <Fade duration={1200} triggerOnce={true}>
+                <Image
+                    src={myFields[0].overlayImage.sourceUrl}
+                    alt={myFields[0].overlayImage.altText}
+                    objectFit='cover'
+                    layout='fill'
+                    quality={100}
+                    priority
+                />
+            </Fade>
             <div className='absolute w-full h-full'>
-                <div className='container grid grid-cols-4 h-full items-center gap-5 '>
+                <div className='container grid grid-cols-4 h-full items-center gap-5 px-6 md:px-0'>
                     <div className={myFields[0].justify[0] === 'right' ? 'col-span-4 lg:col-span-2 lg:col-start-3' : 'col-span-4 lg:col-span-2'}>
-                        <div className='font-serif text-white text-3xl w-fit pb-3 mb-3 border-b-white border-b'>
-                            {myFields[0].heading}
-                        </div>
-                        <div className='text-white text-lg mb-3'>
-                            {myFields[0].body}
-                        </div>
-                        <div className='text-justice-blue font-semibold text-lg tracking-wider underline underline-offset-8 decoration-1'>
-                            {myFields[0].uRLText}
-                        </div>
+                        <Fade direction={myFields[0].justify[0] === 'right' ? 'left' : 'right'} triggerOnce={true}>
+                            <div className='font-serif text-white text-4xl w-fit mb-3 underline underline-offset-[12px] leading-[60px] decoration-1'>
+                                {myFields[0].heading}
+                            </div>
+                            <div className='text-white text-lg mb-3'>
+                                {myFields[0].body}
+                            </div>
+                            <Link href={myFields[0].uRL}>
+                                <a>
+                                    <div className='text-justice-blue font-semibold text-lg tracking-wider underline underline-offset-8 decoration-1'>
+                                        {myFields[0].uRLText}
+                                    </div>
+                                </a>
+                            </Link>
+                        </Fade>
                     </div>
                 </div>
             </div>

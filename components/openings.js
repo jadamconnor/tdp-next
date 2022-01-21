@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 export default function Openings({ openings, onAddChip }) {
     return (
-        <div className='container'>
+        <div className='container px-6 md:px-0 mb-12'>
             {openings.map((el) => (
                 <div className='border-b border-b-neutral-400' key={el.id}>
                     <div className='flex flex-wrap justify-between py-12' key={el.id}>
-                        <div className='w-1/2'>
+                        <div className='w-full lg:w-1/2'>
                             <Link href={`/careers/${el.slug}`}>
                                 <a>
                                     <div className='text-justice-blue text-xl font-serif font-light mb-5'>
@@ -74,7 +74,7 @@ export default function Openings({ openings, onAddChip }) {
                             </div>
                         </div>
                     </div>
-                    <div className='flex mb-8'>
+                    <div className='flex mb-5'>
                         <Link href={`/careers/${el.slug}`}>
                             <a>
                                 <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider mr-6'>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/pro-solid-svg-icons'
+import Image from 'next/image'
 
 export default function ServicesAccordion({ service }) {
 
@@ -12,7 +13,7 @@ export default function ServicesAccordion({ service }) {
 
     return (
         <div
-            className={`w-fit mx-auto mb-12 p-12 rounded-2xl transition-colors ease-in-out duration-500 ${isShowing && 'bg-stone-100'}`}
+            className={`w-fit mx-auto mb-12 p-6 lg:p-12 rounded-2xl transition-colors ease-in-out duration-500 ${isShowing && 'bg-stone-100'}`}
             key={service.id}
         >
             <div className='flex justify-center'>
@@ -21,7 +22,15 @@ export default function ServicesAccordion({ service }) {
                 </div>
             </div>
             <div className='flex justify-center'>
-                <div className='w-12 h-12 bg-justice-blue rounded-full mb-6'>
+                <div className='relative w-12 h-12 mb-4'>
+                    <Image
+                        src={service.icon.sourceUrl}
+                        alt={service.icon.altText}
+                        objectFit='cover'
+                        layout='fill'
+                        quality={100}
+                        priority
+                    />
                 </div>
             </div>
             <div className='flex justify-center'>

@@ -160,11 +160,11 @@ export default ({ jobOpening }) => {
             setValidationErrors(validate())
     }
     return (
-        <div className='container mb-28 '>
+        <div className='container mb-28 px-6 md:px-0'>
             <main>
                 <form onSubmit={handleOnSubmit} encType='multipart/form-data'>
                     <div className='flex flex-wrap justify-between'>
-                        <div className='w-5/12'>
+                        <div className='w-full lg:w-5/12'>
                             <div className='w-full mb-3'>
                                 <div>
                                     <label className='text-lg text-justice-brown ml-3' htmlFor='fullName'>Full Name</label>
@@ -282,8 +282,8 @@ export default ({ jobOpening }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-5/12 text-justice-stone'>
-                            <div className='text-lg mb-3'>
+                        <div className='w-full lg:w-5/12 text-justice-stone'>
+                            <div className='text-lg mb-3 mt-3'>
                                 Equal Employment Opportunity Voluntary Self-Identification
                             </div>
                             <div className='text-sm mb-3'>
@@ -294,7 +294,7 @@ export default ({ jobOpening }) => {
                                     We are required by federal regulations to report information as requested below. Your contribution of this information is completely voluntary. The information you provide is completely confidential and will be maintained separate from your personnel file and will not be used in a manner inconsistent with any applicable laws or regulations.
                                 </p>
                             </div>
-                            <div className='mb-1 mt-2 text-lg ' htmlFor='gender'>
+                            <div className='mb-3 mt-5 text-lg ' htmlFor='gender'>
                                 Gender Identification (select only one)
                             </div>
                             <label className='flex items-center mb-1'>
@@ -313,7 +313,7 @@ export default ({ jobOpening }) => {
                                 <input type='radio' className='form-radio mr-1 focus:ring-1 focus:ring-white w-3.5 h-3.5 bg-neutral-300 border-0 text-justice-blue' name='gender' value='did not disclose' onChange={(e) => onChangeGender(e)}/>
                                 <span htmlFor='gender' className='text-sm'>I do not wish to disclose</span>
                             </label>
-                            <div className='mb-1 mt-2 text-lg ' htmlFor='race'>
+                            <div className='mb-3 mt-5 text-lg ' htmlFor='race'>
                                 Race/Ethnic Identification
                             </div>
                             <label className='flex items-center mb-1'>
@@ -348,7 +348,7 @@ export default ({ jobOpening }) => {
                                 <input type='radio' className='form-radio mr-1 focus:ring-1 focus:ring-white w-3.5 h-3.5 bg-neutral-300 border-0 text-justice-blue' name='race' value='did not disclose' onChange={(e) => onChangeRace(e)} />
                                 <span className='text-sm'>I do not wish to disclose</span>
                             </label>
-                            <div className='mb-1 mt-2 text-lg ' htmlFor='disabledVet'>
+                            <div className='mb-3 mt-5 text-lg ' htmlFor='disabledVet'>
                                 Disabled Veteran?
                             </div>
                             <label className='flex items-center mb-1'>
@@ -366,7 +366,7 @@ export default ({ jobOpening }) => {
                                     </i>
                                 </p>
                             </div>
-                            <div className='mb-1 mt-2 text-lg ' htmlFor='disabledIndividual'>
+                            <div className='mb-3 mt-5 text-lg ' htmlFor='disabledIndividual'>
                                 Disabled Individual?
                             </div>
                             <label className='flex items-center mb-1'>
