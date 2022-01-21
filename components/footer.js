@@ -28,7 +28,7 @@ export default function Footer({ myMenu, services }) {
                             FOLLOW US
                         </div>
                         <div className='flex text-white/50 text-2xl gap-2'>
-                            <a href='https://www.linkedin.com/company/10448013' target='_blank' rel='noopener'>
+                            <a href='https://www.linkedin.com/company/10448013' target='_blank' rel='noreferrer'>
                                 <FontAwesomeIcon icon={faLinkedin}/>
                             </a>
                         </div>
