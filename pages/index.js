@@ -29,7 +29,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homeFields, richCTAS, newsItems, primaryNav, footerNav, services }) {
-    console.log(newsItems)
 
     const richHeroImage = homeFields?.richHero[0].backgroundImage.sourceUrl
     const overlayImage = homeFields?.richHero[0].overlayImage.sourceUrl
