@@ -5,7 +5,7 @@ import { faTimes } from '@fortawesome/pro-solid-svg-icons'
 export default function BioModal({onClose, content}) {
 
     return (
-        <div className='fixed flex items-center justify-center w-screen min-h-screen max-h-fit bg-black/50 z-50'>
+        <div className='fixed flex items-center justify-center w-screen max-h-fit bg-black/50 z-50'>
             <div className='relative text-xl text-smart-blue bg-white m-6 p-8 w-full sm:w-[500px] lg:w-3/4 rounded-xl'>
                 <FontAwesomeIcon icon={faTimes}
                     className='cursor-pointer absolute top-4 right-4'
