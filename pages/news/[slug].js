@@ -32,7 +32,6 @@ export async function getStaticPaths() {
 
 export default function NewsItem({ newsItems, primaryNav, footerNav, slug, services }) {
     const newsItem = newsItems.filter((el) => el.node.slug === slug)
-    console.log(newsItem)
     
     return (
         <div>

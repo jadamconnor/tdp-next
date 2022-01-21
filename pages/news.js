@@ -28,7 +28,6 @@ export async function getStaticProps() {
 let chipsArr = []
 
 export default function News({ newsItems, primaryNav, footerNav, services }) {
-    console.log(newsItems)
     
     const featNews = newsItems.filter((newsItem) => newsItem.node.newsItemFields.featured === true)
 
