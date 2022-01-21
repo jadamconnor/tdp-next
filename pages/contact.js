@@ -38,7 +38,7 @@ export default function Contact({ primaryNav, footerNav, services }) {
                             Contact The Difference Principle
                         </div>
                         <div className='text-2xl'>
-                            The best way to reach us regarding any of our programming is through this email form.
+                            Interested in learning more about our services and how they can benefit you? Contact us here!
                         </div>
                     </div>
                     <div className='col-span-1'>
