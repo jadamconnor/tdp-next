@@ -33,8 +33,8 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
     const [modalContent, setModalContent] = useState({})
 
     const openModal = (content) => {
-        setModalContent(content)
-        setModalOpen(true)
+        // setModalContent(content)
+        // setModalOpen(true)
     }
 
     const employmentCTA = richCTAS.filter((el) => el.heading === 'Pursue Your Passion')
