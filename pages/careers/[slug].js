@@ -34,7 +34,7 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug 
         <div>
             <Header myMenu={primaryNav}/>
             {openingFields.map((el) => (
-                <div className='container my-28 px-6 md:px-0' key={el.id}>
+                <div className='container my-28 px-6 lg:px-0' key={el.id}>
                     <div className='flex flex-wrap justify-between'>
                         <div className='w-full lg:w-1/2 mb-6'>
                             <div className='text-justice-stone text-5xl font-serif mb-8'>

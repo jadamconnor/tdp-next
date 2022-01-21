@@ -31,10 +31,12 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
 
     const [modalOpen, setModalOpen] = useState(false)
     const [modalContent, setModalContent] = useState({})
+    const [hideHeader, setHideHeader] = useState(false)
 
     const openModal = (content) => {
-        // setModalContent(content)
-        // setModalOpen(true)
+        setHideHeader(true)
+        setModalContent(content)
+        setModalOpen(true)
     }
 
     const employmentCTA = richCTAS.filter((el) => el.heading === 'Pursue Your Passion')
@@ -45,7 +47,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
             {modalOpen &&
                 <BioModal
                     content={modalContent}
-                    onClose={() => {setModalOpen(false)}}
+                    onClose={() => {setModalOpen(false), setHideHeader(false)}}
                 />
             }
             <div>
@@ -54,9 +56,11 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <meta name='description' content='Providing evidence-backed management and administrative services to nonprofit organizations.' />
                     <link rel='icon' href='/favicon.ico' />
                 </Head>
-                <Header myMenu={primaryNav}/>
+                {!hideHeader &&
+                    <Header myMenu={primaryNav}/>
+                }
                 {/* Intro */}
-                <div className='container px-6 md:px-0'>
+                <div className='container px-6 lg:px-0'>
                     <div className='w-full lg:w-1/2 my-28'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {aboutFields.intro[0].heading}
@@ -81,7 +85,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     />
                 </div>
                 {/* Lead-in */}
-                <div className='bg-justice-stone px-6 md:px-0'>
+                <div className='bg-justice-stone px-6 lg:px-0'>
                     <div className='container flex items-center justify-center '>
                         <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                             {aboutFields.leadIn[0].leadInText}
@@ -89,7 +93,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     </div>
                 </div>
                 {/* Motivations */}
-                <div className='container my-14 px-6 md:px-0'>
+                <div className='container my-14 px-6 lg:px-0'>
                     <div className='flex justify-center'>
                         <div className='text-3xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-10 decoration-1 pb-1 mb-6'>
                             {aboutFields.motivations[0].heading}
@@ -106,7 +110,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <AboutAccordion copy={aboutFields.ourHistory[0]}/>
                 </div>
                 {/* Bios */}
-                <div className='container my-14 px-6 md:px-0'>
+                <div className='container my-14 px-6 lg:px-0'>
                     <div className='flex justify-center'>
                         <div className='text-3xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-10 decoration-1 pb-1'>
                             {aboutFields.executiveTeam[0].heading}

@@ -113,7 +113,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                 </div>
             </div>
             <FilterBar chips={chips} onAddChip={addChip} onRemoveChip={removeChip} selectItems={filterSelects} />
-            <div className='container px-6 md:px-0'>
+            <div className='container px-6 lg:px-0'>
                 <div className='text-5xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-[70px] decoration-1 pb-1 mb-5'>
                     Current Positions
                 </div>

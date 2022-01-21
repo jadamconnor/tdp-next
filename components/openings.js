@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Openings({ openings, onAddChip }) {
     return (
-        <div className='container px-6 md:px-0 mb-12'>
+        <div className='container px-6 lg:px-0 mb-12'>
             {openings.map((el) => (
                 <div className='border-b border-b-neutral-400' key={el.id}>
                     <div className='flex flex-wrap justify-between py-12' key={el.id}>

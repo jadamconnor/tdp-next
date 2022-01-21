@@ -68,7 +68,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     />
                 </Fade>
                     <div className='absolute flex flex-wrap items-center w-full h-full'>
-                        <div className='container px-6 md:px-0'>
+                        <div className='container px-6 lg:px-0'>
                                 <div className='lg:w-1/2'>
                                     <div className='font-serif text-white text-5xl mb-6'>
                                         {richHeroHeading}
@@ -92,7 +92,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     layout='fill'
                     priority
                 />
-                <div className='absolute flex items-center w-full h-full px-6 md:px-0'>
+                <div className='absolute flex items-center w-full h-full px-6 lg:px-0'>
                     <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug xl:px-60'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
@@ -105,7 +105,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </div>
             </div>
             {/* Services */}
-            <div className='container grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 md:px-0'>
+            <div className='container grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 lg:px-0'>
                 {services.map((el) => (
                     <div className='flex flex-wrap justify-center py-8' key={el.id}>
                         <div className='relative w-12 h-12 mb-4'>
@@ -149,7 +149,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* About CTA */}
             <RichCta myFields={contactCTA}/>
             {/* News Preview */}
-            <div className='container my-14 px-6 md:px-0'>
+            <div className='container my-14 px-6 lg:px-0'>
                 <div className='font-serif text-justice-stone text-4xl w-fit border-b border-b-black pb-3 mb-5'>
                     Recent News
                 </div>

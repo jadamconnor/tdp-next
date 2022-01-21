@@ -39,7 +39,7 @@ export default function Header({ myMenu }) {
                 : 
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
-                <div className='container py-6 px-6 md:px-0'>
+                <div className='container py-6 px-6 lg:px-0'>
                     <div className='flex justify-between items-center'>
                         <Link href={'/'}>
                             <a>
