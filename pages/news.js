@@ -6,7 +6,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import FilterBar from '../components/filter-bar'
 import NewsItems from '../components/news-items'
-import { getRichCTAS, getNewsItems, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
+import { getNewsItems, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
 
 export async function getStaticProps() {
     const newsItems = await getNewsItems()

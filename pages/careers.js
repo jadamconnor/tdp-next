@@ -102,13 +102,15 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>
-            <div className='container px-6 lg:px0'>
-                <div className='w-full lg:w-1/2 mt-28 mb-16'>
-                    <div className='text-5xl text-justice-stone font-serif mb-3'>
-                        {careersFields.intro[0].heading}
-                    </div>
-                    <div className='text-justice-stone text-3xl'>
-                        {careersFields.intro[0].body}
+            <div className='bg-[url("/Spotlogo2.png")] bg-top bg-[length:650px_800px] bg-no-repeat h-[400px]'>
+                <div className='container flex items-center px-6 lg:px-0'>
+                    <div className='w-full lg:w-2/3 my-28'>
+                        <div className='text-5xl text-justice-stone font-serif mb-3'>
+                            {careersFields.intro[0].heading}
+                        </div>
+                        <div className='text-justice-stone text-3xl'>
+                            {careersFields.intro[0].body}
+                        </div>
                     </div>
                 </div>
             </div>

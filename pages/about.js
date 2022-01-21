@@ -60,13 +60,15 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <Header myMenu={primaryNav}/>
                 }
                 {/* Intro */}
-                <div className='container px-6 lg:px-0'>
-                    <div className='w-full lg:w-1/2 my-28'>
-                        <div className='text-5xl text-justice-stone font-serif mb-3'>
-                            {aboutFields.intro[0].heading}
-                        </div>
-                        <div className='text-justice-stone text-3xl'>
-                            {aboutFields.intro[0].body}
+                <div className='bg-[url("/Spotlogo2.png")] bg-right-top bg-[length:650px_800px] bg-no-repeat h-[400px]'>
+                    <div className='container flex items-center px-6 lg:px-0'>
+                        <div className='w-full lg:w-2/3 my-28'>
+                            <div className='text-5xl text-justice-stone font-serif mb-3'>
+                                {aboutFields.intro[0].heading}
+                            </div>
+                            <div className='text-justice-stone text-3xl'>
+                                {aboutFields.intro[0].body}
+                            </div>
                         </div>
                     </div>
                 </div>

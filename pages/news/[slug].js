@@ -54,7 +54,7 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
                 <div className='news mt-6' dangerouslySetInnerHTML={{__html: newsItem[0].node.newsItemFields.content}}>
                 </div>
             </div>
-            <div className='container text-justice-blue text-lg mt-28 px-6 lg:px-0'>
+            <div className='container text-justice-blue text-lg my-28 px-6 lg:px-0'>
                 <Link href={'/news'}>
                     <a>
                         BACK TO NEWS
