@@ -69,7 +69,6 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </Fade>
                     <div className='absolute flex flex-wrap items-center w-full h-full'>
                         <div className='container px-6 md:px-0'>
-                            <Fade direction='right' triggerOnce={true}>
                                 <div className='lg:w-1/2'>
                                     <div className='font-serif text-white text-5xl mb-6'>
                                         {richHeroHeading}
@@ -81,7 +80,6 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                                         EXPLORE OUR SERVICES
                                     </div>
                                 </div>
-                            </Fade>
                         </div>
                     </div>
             </div>
