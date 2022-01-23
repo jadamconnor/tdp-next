@@ -15,7 +15,7 @@ export async function getStaticProps({ params }) {
             footerNav: footerNavMenu.menus.edges[0].node,
             slug: params.slug
         },
-        revalidate: 1
+        revalidate: 60
     }
 }
 

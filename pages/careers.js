@@ -23,7 +23,7 @@ export async function getStaticProps() {
             footerNav: footerNavMenu.menus.edges[0].node,
             services: services
         },
-        revalidate: 1
+        revalidate: 60
     }
 }
 
