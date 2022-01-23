@@ -5,6 +5,7 @@ import RichCta from '../components/rich-cta'
 import { Fade } from 'react-awesome-reveal'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import NetworkAccordion from '../components/network-accordion'
 import { getHomePageFields, getRichCTAS, getNewsItems, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
 
 export async function getStaticProps() {
@@ -29,6 +30,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ homeFields, richCTAS, newsItems, primaryNav, footerNav, services }) {
+    console.log(homeFields)
 
     const richHeroImage = homeFields?.richHero[0].backgroundImage.sourceUrl
     const overlayImage = homeFields?.richHero[0].overlayImage.sourceUrl
@@ -88,7 +90,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     </div>
             </div>
             {/* Lead-in */}
-            <div className='relative w-full h-[400px] lg:h-[600px] bg-justice-blue'>
+            <div className='relative w-full h-[400px] lg:h-[500px] bg-justice-blue px-6 lg:px-0'>
                 <Image
                     src={homeFields.leadIn[0].leadInBgImage.sourceUrl}
                     alt={homeFields.leadIn[0].leadInBgImage.altText}
@@ -96,8 +98,8 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     layout='fill'
                     priority
                 />
-                <div className='absolute flex items-center w-full h-full px-6 lg:px-0'>
-                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug xl:px-60'>
+                <div className='absolute flex items-center w-full h-full'>
+                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
                 </div>
@@ -109,10 +111,10 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </div>
             </div>
             {/* Services */}
-            <div className='container grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 lg:px-0'>
+            <div className='container grid grid-cols-1 gap-x-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6 lg:px-0'>
                 {services.map((el) => (
-                    <div className='flex flex-wrap justify-center py-8' key={el.id}>
-                        <div className='relative w-12 h-12 mb-4'>
+                    <div className='text-center justify-center py-8' key={el.id}>
+                        <div className='relative w-12 h-12 mb-4 mx-auto'>
                             <Image
                                 src={el.icon.sourceUrl}
                                 alt={el.icon.altText}
@@ -138,18 +140,10 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     </div>
                 ))}
             </div>
-            {/* Network Highlights
-            <div className='flex flex-wrap justify-center items-center bg-justice-blue-100 py-14 h-96'>
-                <div>
-                    <div className='font-serif text-justice-stone text-5xl w-full text-center mb-6'>
-                        {homeFields.networkHighlights[0].title}
-                    </div>
-                    <div className='text-justice-blue text-xl underline underline-offset-8 decoration-1 w-full text-center tracking-wider'>
-                        LINK TO NETWORK PAGE
-                    </div>
-                </div>
+            {/* Network */}
+            <div className='flex flex-wrap justify-center items-center bg-justice-blue-100 py-14'>
+                <NetworkAccordion copy={homeFields.network[0]}/>
             </div>
-            */}
             {/* About CTA */}
             <RichCta myFields={contactCTA}/>
             {/* News Preview */}

@@ -19,7 +19,7 @@ export default function BioModal({onClose, content}) {
     useLockBodyScroll()
 
     return (
-        <div className='fixed flex md:items-center justify-center w-screen h-screen -mt-28 bg-black/50 z-50 overflow-scroll'>
+        <div className='fixed flex md:items-center justify-center w-screen h-screen bg-black/50 z-50 overflow-scroll'>
             <div className='relative h-fit text-xl text-smart-blue bg-white m-6 p-8 w-full lg:w-3/4 rounded-xl'>
                 <FontAwesomeIcon icon={faTimes}
                     className='cursor-pointer absolute top-4 right-4'

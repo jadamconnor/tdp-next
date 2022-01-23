@@ -5,7 +5,7 @@ export default function Openings({ openings, onAddChip }) {
         <div className='container px-6 lg:px-0 mb-12'>
             {openings.map((el) => (
                 <div className='border-b border-b-neutral-400' key={el.id}>
-                    <div className='flex flex-wrap justify-between py-12' key={el.id}>
+                    <div className='flex flex-wrap justify-between pt-12 mb-3' key={el.id}>
                         <div className='w-full lg:w-1/2'>
                             <Link href={`/careers/${el.slug}`}>
                                 <a>
@@ -84,7 +84,7 @@ export default function Openings({ openings, onAddChip }) {
                         </Link>
                         <Link href={`/apply/${el.slug}`}>
                             <a>
-                                <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider mb-3'>
                                     APPLY
                                 </div>
                             </a>

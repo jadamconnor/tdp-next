@@ -39,7 +39,7 @@ export default function Apply({ openingFields, primaryNav, footerNav, services, 
             {/* Intro */}
             {openingFields.map((el) => (
                 <div className='container px-6 lg:px-0' key={el.id}>
-                    <div className='w-full lg:w-1/2 my-28'>
+                    <div className='w-full lg:w-1/2 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {el.openingFields.jobTitle}
                         </div>

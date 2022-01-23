@@ -82,7 +82,7 @@ export default function News({ newsItems, primaryNav, footerNav, services }) {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>
-            <div className='container my-14 px-6 lg:px-0'>
+            <div className='container mt-36 px-6 lg:px-0'>
                 <div className='font-serif text-4xl text-justice-stone w-fit underline underline-offset-[12px] leading-10 decoration-1 mb-5'>
                     Featured News
                 </div>

@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import ServicesAccordion from '../components/services-accordion'
-import RichCta from '../components/rich-cta'
 
 export async function getStaticProps() {
     const servicesFields = await getServicesPageFields()
@@ -46,9 +45,9 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
             </Head>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='bg-[url("/Spotlogo2.png")] 2xl:bg-[left_50rem_top] md:bg-right-top bg-[length:650px_800px] bg-no-repeat h-[400px]'>
+            <div className='bg-[url("/Spotlogo2.png")] 2xl:bg-[left_50rem_top] md:bg-right-top bg-[length:650px_800px] bg-no-repeat h-[500px] lg:h-[400px]'>
                 <div className='container flex items-center px-6 lg:px-0'>
-                    <div className='w-full lg:w-2/3 my-28'>
+                    <div className='w-full lg:w-2/3 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {servicesFields.intro[0].heading}
                         </div>

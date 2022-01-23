@@ -60,9 +60,9 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <Header myMenu={primaryNav}/>
                 }
                 {/* Intro */}
-                <div className='bg-[url("/Spotlogo2.png")] 2xl:bg-[left_50rem_top] md:bg-right-top bg-[length:650px_800px] bg-no-repeat h-[400px]'>
+                <div className='bg-[url("/Spotlogo2.png")] 2xl:bg-[left_50rem_top] md:bg-right-top bg-[length:650px_800px] bg-no-repeat h-[500px] lg:h-[400px]'>
                     <div className='container flex items-center px-6 lg:px-0'>
-                        <div className='w-full lg:w-2/3 my-28'>
+                        <div className='w-full lg:w-2/3 py-36'>
                             <div className='text-5xl text-justice-stone font-serif mb-3'>
                                 {aboutFields.intro[0].heading}
                             </div>
@@ -89,7 +89,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 {/* Lead-in */}
                 <div className='bg-justice-stone px-6 lg:px-0'>
                     <div className='container flex items-center justify-center '>
-                        <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
+                        <div className='h-fit text-white text-4xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                             {aboutFields.leadIn[0].leadInText}
                         </div>
                     </div>
@@ -97,13 +97,12 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 {/* Motivations */}
                 <div className='container my-14 px-6 lg:px-0'>
                     <div className='flex justify-center'>
-                        <div className='text-3xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-10 decoration-1 pb-1 mb-6'>
+                        <div className='text-4xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-10 decoration-1 pb-1 mb-6'>
                             {aboutFields.motivations[0].heading}
                         </div>
                     </div>
                     <div className='flex justify-center'>
-                        <div className='text-justify md:text-center text-xl text-justice-stone mb-6'>
-                            {aboutFields.motivations[0].body}
+                        <div className='unreset  text-center text-3xl text-justice-stone mb-6' dangerouslySetInnerHTML={{__html: aboutFields.motivations[0].body}}>
                         </div>
                     </div>
                 </div>
@@ -114,7 +113,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 {/* Bios */}
                 <div className='container my-14 px-6 lg:px-0'>
                     <div className='flex justify-center'>
-                        <div className='text-3xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-10 decoration-1 pb-1'>
+                        <div className='text-4xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-[60px] decoration-1 pb-1'>
                             {aboutFields.executiveTeam[0].heading}
                         </div>
                     </div>
