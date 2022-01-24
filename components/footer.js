@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons'
+import { faCaretDown, faCaretUp } from '@fortawesome/pro-solid-svg-icons'
 
 export default function Footer({ myMenu, services }) {
     const [ networkOpen, setNetworkOpen ] = useState(false)
@@ -29,8 +29,13 @@ export default function Footer({ myMenu, services }) {
                                 </Link>
                             }
                             {!el.parentId && el.label === 'Network' &&
-                                <div onClick={() => toggleNetworkOpen()} className='cursor-pointer'>
-                                    {el.label} <FontAwesomeIcon className='ml-1' icon={faCaretDown}/>
+                                <div onClick={() => toggleNetworkOpen()} className={`cursor-pointer`}>
+                                    {el.label}
+                                    {!networkOpen ?
+                                        <FontAwesomeIcon className='ml-1' icon={faCaretDown}/>
+                                    :
+                                        <FontAwesomeIcon className='ml-1' icon={faCaretUp}/>
+                                    }
                                 </div>
                             }
                             {networkOpen &&
