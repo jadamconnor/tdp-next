@@ -89,16 +89,9 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     </div>
             </div>
             {/* Lead-in */}
-            <div className='relative w-full h-[400px] lg:h-[500px] bg-justice-blue px-6 lg:px-0'>
-                <Image
-                    src={homeFields.leadIn[0].leadInBgImage.sourceUrl}
-                    alt={homeFields.leadIn[0].leadInBgImage.altText}
-                    objectFit='cover'
-                    layout='fill'
-                    priority
-                />
-                <div className='absolute flex items-center w-full h-full'>
-                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
+            <div className='bg-[url("/FullWidthImage1.jpg")] bg-center bg-cover lg:bg-contain bg-no-repeat bg-justice-blue'>
+                <div className='container flex items-center w-full h-full'>
+                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32 px-6 lg:px-0'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
                 </div>

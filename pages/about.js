@@ -89,7 +89,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                 {/* Lead-in */}
                 <div className='bg-justice-stone px-6 lg:px-0'>
                     <div className='container flex items-center justify-center '>
-                        <div className='h-fit text-white text-4xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
+                        <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32'>
                             {aboutFields.leadIn[0].leadInText}
                         </div>
                     </div>
