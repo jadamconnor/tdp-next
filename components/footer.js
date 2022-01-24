@@ -37,7 +37,7 @@ export default function Footer({ myMenu, services }) {
                                 <div className='absolute top-0 -left-1 bg-stone-300 text-justice-stone z-50 px-1'>
                                     {el.parentId &&
                                         myMenu.menuItems.nodes.filter(el => el.parentId).map((el) => (
-                                            <div className='mb-1'>
+                                            <div className='mb-1' key={el.path}>
                                                 <a href={el.path} target='_blank' rel='noreferrer'>
                                                     {el.label}
                                                 </a>
