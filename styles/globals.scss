@@ -11,3 +11,10 @@ body {
 *, :after, :before {
   -webkit-font-smoothing: antialiased;
 }
+
+:target {
+  display: block;
+  position: relative;
+  top: -120px; 
+  visibility: hidden;
+}

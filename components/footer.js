@@ -1,9 +1,16 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons'
 
 export default function Footer({ myMenu, services }) {
+    const [ networkOpen, setNetworkOpen ] = useState(false)
+
+    const toggleNetworkOpen = () => {
+        setNetworkOpen(!networkOpen)
+    }
     
     return (
         <div className='bg-justice-gray w-full py-14 px-6 lg:px-0'>
@@ -13,12 +20,32 @@ export default function Footer({ myMenu, services }) {
                         CONTENT
                     </div>
                     {myMenu.menuItems.nodes.map((el) => (
-                        <div className='uppercase text-white/50 mb-1' key={el.id}>
-                            <Link href={el.path}>
-                                <a>
-                                    {el.label}
-                                </a>
-                            </Link>
+                        <div className='relative uppercase text-white/50 mb-1' key={el.id}>
+                            {(!el.parentId && el.label !== 'Network') &&
+                                <Link href={el.path}>
+                                    <a>
+                                        {el.label}
+                                    </a>
+                                </Link>
+                            }
+                            {!el.parentId && el.label === 'Network' &&
+                                <div onClick={() => toggleNetworkOpen()} className='cursor-pointer'>
+                                    {el.label} <FontAwesomeIcon className='ml-1' icon={faCaretDown}/>
+                                </div>
+                            }
+                            {networkOpen &&
+                                <div className='absolute top-0 -left-1 bg-stone-300 text-justice-stone z-50 px-1'>
+                                    {el.parentId &&
+                                        myMenu.menuItems.nodes.filter(el => el.parentId).map((el) => (
+                                            <div className='mb-1'>
+                                                <a href={el.path} target='_blank' rel='noreferrer'>
+                                                    {el.label}
+                                                </a>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            }
                         </div>
                     ))}
                 </div>
@@ -67,7 +94,7 @@ export default function Footer({ myMenu, services }) {
                     <div className='text-white/50'>
                         {services.map((el) => (
                             <div className='text-xs font-bold mb-3' key={el.id}>
-                                <Link href={'/services'}>
+                                <Link href={`/services#${el.id}`}>
                                     <a>
                                         {el.name}
                                     </a>

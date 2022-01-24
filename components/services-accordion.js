@@ -6,7 +6,6 @@ import Image from 'next/image'
 export default function ServicesAccordion({ service }) {
     let responsibilitiesEven = service.responsibilities.length % 2 == 0
     let responsibilityCt = service.responsibilities.length - 1
-    let middleResponsibility = (responsibilityCt / 2).toFixed()
 
     const [isShowing, setIsShowing] = useState(false)
 
@@ -16,6 +15,7 @@ export default function ServicesAccordion({ service }) {
 
     return (
         <div
+            id={service.id}
             className={`w-fit mx-auto mb-12 p-6 lg:p-12 rounded-2xl transition-colors ease-in-out duration-500 ${isShowing && 'bg-stone-100'}`}
             key={service.id}
         >
@@ -85,7 +85,7 @@ export default function ServicesAccordion({ service }) {
                                             'border-white'
                                         }`
                                     } 
-                                    key={el.label}
+                                    key={el.label + index}
                                 >
                                     <div className='w-full text-center'>
                                         {el.label}
@@ -93,7 +93,7 @@ export default function ServicesAccordion({ service }) {
                                     {el.subItems &&
                                         <div className='font-light w-full text-center '>
                                             {el.subItems.map((e, index) => (
-                                                <span key={e + index}>
+                                                <span key={e + index + index}>
                                                     {index === el.subItems.length - 1 ?
                                                         <span>{e}</span>
                                                         :
