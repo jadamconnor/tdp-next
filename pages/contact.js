@@ -31,7 +31,7 @@ export default function Contact({ primaryNav, footerNav, services }) {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>
-            <div className='container mt-36 px-6 lg:px-0'>
+            <div className='container mt-36 px-6 2xl:px-0'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-28'>
                     <div className='col-span-1'>
                         <div className='font-serif text-4xl text-justice-stone mb-6'>
