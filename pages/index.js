@@ -68,28 +68,28 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                         priority
                     />
                 </Fade>
-                    <div className='absolute flex flex-wrap items-center w-full h-full'>
-                        <div className='container px-6 2xl:px-0'>
-                                <div className='lg:w-1/2'>
-                                    <div className='font-serif text-white text-5xl mb-6'>
-                                        {richHeroHeading}
-                                    </div>
-                                    <div className='text-white text-3xl mb-6'>
-                                        {richHeroCopy}
-                                    </div>
-                                    <div className='text-white font-semibold text-xl tracking-wider underline underline-offset-8 decoration-1'>
-                                        <Link href={homeFields?.richHero[0].link}>
-                                            <a>
-                                                EXPLORE OUR SERVICES
-                                            </a>
-                                        </Link>
-                                    </div>
-                                </div>
+                <div className='absolute flex flex-wrap items-center w-full h-full'>
+                    <div className='container px-6 2xl:px-0'>
+                        <div className='lg:w-1/2'>
+                            <div className='font-serif text-white text-5xl mb-6'>
+                                {richHeroHeading}
+                            </div>
+                            <div className='text-white text-3xl mb-6'>
+                                {richHeroCopy}
+                            </div>
+                            <div className='text-white font-semibold text-xl tracking-wider underline underline-offset-8 decoration-1'>
+                                <Link href={homeFields?.richHero[0].link}>
+                                    <a>
+                                        EXPLORE OUR SERVICES
+                                    </a>
+                                </Link>
+                            </div>
                         </div>
                     </div>
+                </div>
             </div>
             {/* Lead-in */}
-            <div className='bg-[url("/FullWidthImage1.jpg")] bg-center bg-cover lg:bg-contain bg-no-repeat bg-justice-blue'>
+            <div className='bg-[url("/FullWidthImage1.jpg")] bg-center bg-cover bg-no-repeat bg-justice-blue'>
                 <div className='container flex items-center w-full h-full'>
                     <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32 px-6 2xl:px-0'>
                         {homeFields.leadIn[0].leadInText}
@@ -98,8 +98,8 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             </div>
             {/* Contact CTA */}
             <div className='bg-justice-stone'>
-                <div className='flex justify-center text-white text-xl py-5 px-6 2xl:px-0'>
-                    <div className='unreset' dangerouslySetInnerHTML={{__html: homeFields.contactCta}} />
+                <div className='flex justify-center text-white py-5 px-6 2xl:px-0'>
+                    <div className='unreset text-lg' dangerouslySetInnerHTML={{__html: homeFields.contactCta}} />
                 </div>
             </div>
             {/* Services */}
@@ -145,28 +145,52 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-4 py-8 gap-12'>
                     <div className='lg:col-span-2'>
-                        <div className='font-serif text-justice-blue text-4xl lg:text-6xl mb-3'>
-                            {featNews[0].node.newsItemFields.title}
-                        </div>
-                        <div className='italic'>
+                        {!featNews[0].node.newsItemFields.external ?
+                            <Link href={`/news/${featNews[0].node.slug}`}>
+                                <a>
+                                    <div className='font-serif text-justice-blue text-2xl lg:text-5xl mb-3'>
+                                        {featNews[0].node.newsItemFields.title}
+                                    </div>
+                                </a>
+                            </Link>
+                        :
+                            <a href={featNews[0].node.newsItemFields.url} target='_blank' rel='noreferrer'>
+                                <div className='font-serif text-justice-blue text-2xl lg:text-5xl mb-3'>
+                                    {featNews[0].node.newsItemFields.title}
+                                </div>
+                            </a>
+                        }
+                        <div className='italic text-sm'>
                             {featNews[0].node.newsItemFields.author}
                         </div>
-                        <div>
+                        <div className='text-sm'>
                             {featNews[0].node.newsItemFields.published}
                         </div>
                     </div>
                     {news.slice(0,2).map((el) => (
                         <div className='lg:col-span-1' key={el.node.newsItemFields.blurb}>
-                            <div className='text-justice-blue text-2xl font-serif mb-2'>
-                                {el.node.newsItemFields.title}
-                            </div>
-                            <div className='mb-3'>
+                            {!el.node.newsItemFields.external ?
+                            <Link href={`/news/${el.node.slug}`}>
+                                <a>
+                                    <div className='text-justice-blue text-2xl font-serif mb-2'>
+                                        {el.node.newsItemFields.title}
+                                    </div>
+                                </a>
+                            </Link>
+                            :
+                                <a href={el.node.newsItemFields.url} target='_blank' rel='noreferrer'>
+                                    <div className='text-justice-blue text-2xl font-serif mb-2'>
+                                        {el.node.newsItemFields.title}
+                                    </div>
+                                </a>
+                            }
+                            <div className='mb-3 text-sm'>
                                 {el.node.newsItemFields.blurb}
                             </div>
-                            <div className='italic'>
+                            <div className='italic text-sm'>
                                 {el.node.newsItemFields.author}
                             </div>
-                            <div>
+                            <div className='text-sm'>
                                 {el.node.newsItemFields.published}
                             </div>
                         </div>

@@ -1,7 +1,9 @@
-import { getJobOpenings, getServicesItems, getPrimaryMenu, getFooterMenu, getNewsItems } from '../../lib/api'
+import { getServicesItems, getPrimaryMenu, getFooterMenu, getNewsItems } from '../../lib/api'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretLeft } from '@fortawesome/pro-light-svg-icons'
 
 export async function getStaticProps({ params }) {
     const data = await getNewsItems()
@@ -39,6 +41,7 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
             <div className='container text-justice-blue text-lg mt-28 px-6 2xl:px-0'>
                 <Link href={'/news'}>
                     <a>
+                        <FontAwesomeIcon className='mr-2' icon={faCaretLeft}/>
                         BACK TO NEWS
                     </a>
                 </Link>
@@ -56,11 +59,11 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
             <div className='container text-justice-blue text-lg my-28 px-6 2xl:px-0'>
                 <Link href={'/news'}>
                     <a>
+                        <FontAwesomeIcon className='mr-2' icon={faCaretLeft}/>
                         BACK TO NEWS
                     </a>
                 </Link>
             </div>
-            
             <Footer myMenu={footerNav} services={services}/>
         </div>
     )

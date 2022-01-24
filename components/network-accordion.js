@@ -15,7 +15,7 @@ export default function NetworkAccordion({ copy }) {
         <div
             className={
                 isShowing ? 
-                    'container w-fit mx-auto p-6 lg:p-12 rounded-2xl bg-stone-100' 
+                    'container w-fit mx-auto p-6 lg:p-12 rounded-2xl bg-white' 
                 : 
                     'container w-fit mx-auto p-6 lg:p-12 rounded-2xl'
             }
@@ -29,13 +29,13 @@ export default function NetworkAccordion({ copy }) {
             <div className={`grid lg:grid-cols-3 gap-x-12 transition-all ease-in-out duration-300 ${isShowing ? 'h-full' : 'h-0'}`}>
                 {copy.partner.map((partner, index) => (
                     <div className='col-span-1' key={partner.blurb}>
-                        <div className={`relative w-1/2 lg:w-1/3 h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'}`}>
+                        <div className={`relative h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'} ${partner.name === 'JusticePoint' ? 'w-3/5 xl:w-5/12' : 'w-1/2 xl:w-1/3'}`}>
                             <img
-                                className='absolute bottom-0'
+                                className={`absolute  ${partner.name === 'JusticePoint' ? '-bottom-4' : 'bottom-0'}`}
                                 src={partner.logo.sourceUrl}
                             />
                         </div>
-                        <div className={`block text-justice-stone text-lg text-center mb-12 lg:mb-4 mx-auto ${isShowing ? 'block' : 'hidden'}`}>
+                        <div className={`block text-justice-stone text-sm text-center mb-12 lg:mb-4 mx-auto ${isShowing ? 'block' : 'hidden'}`}>
                             {partner.blurb}
                         </div>
                     </div>
