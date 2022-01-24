@@ -29,13 +29,13 @@ export default function NetworkAccordion({ copy }) {
             <div className={`grid lg:grid-cols-3 gap-x-12 transition-all ease-in-out duration-300 ${isShowing ? 'h-full' : 'h-0'}`}>
                 {copy.partner.map((partner, index) => (
                     <div className='col-span-1' key={partner.blurb}>
-                        <div className={`relative w-1/3 h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'}`}>
+                        <div className={`relative w-1/2 lg:w-1/3 h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'}`}>
                             <img
                                 className='absolute bottom-0'
                                 src={partner.logo.sourceUrl}
                             />
                         </div>
-                        <div className={`block text-justice-stone text-lg text-center mb-4 mx-auto ${isShowing ? 'block' : 'hidden'}`}>
+                        <div className={`block text-justice-stone text-lg text-center mb-12 lg:mb-4 mx-auto ${isShowing ? 'block' : 'hidden'}`}>
                             {partner.blurb}
                         </div>
                     </div>
