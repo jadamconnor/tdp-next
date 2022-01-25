@@ -38,7 +38,7 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
     return (
         <div>
             <Header myMenu={primaryNav}/>
-            <div className='container text-justice-blue text-lg mt-28 px-6 2xl:px-0'>
+            <div className='container text-justice-blue text-lg mt-28 px-6  xl:px-28 2xl:px-0'>
                 <Link href={'/news'}>
                     <a>
                         <FontAwesomeIcon className='mr-2' icon={faCaretLeft}/>
@@ -46,7 +46,7 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
                     </a>
                 </Link>
             </div>
-            <div className='container px-6 2xl:px-0'>
+            <div className='container px-6  xl:px-28 2xl:px-0'>
                 <div className='font-serif text-4xl mt-12'>
                     {newsItem[0].node.newsItemFields.title}
                 </div>
@@ -56,7 +56,7 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
                 <div className='news mt-6' dangerouslySetInnerHTML={{__html: newsItem[0].node.newsItemFields.content}}>
                 </div>
             </div>
-            <div className='container text-justice-blue text-lg my-28 px-6 2xl:px-0'>
+            <div className='container text-justice-blue text-lg my-28 px-6  xl:px-28 2xl:px-0'>
                 <Link href={'/news'}>
                     <a>
                         <FontAwesomeIcon className='mr-2' icon={faCaretLeft}/>
