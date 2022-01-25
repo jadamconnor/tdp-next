@@ -45,7 +45,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
             </Head>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            <div className='bg-[url("/Spotlogo2.png")] bg-size 2xl:bg-[left_50rem_top_2rem] md:bg-right-top bg-[length:650px_800px] bg-no-repeat h-[500px] lg:h-[400px]'>
+            <div className='bg-[url("/Spotlogo2.png")] bg-size xl:bg-[left_30rem_top_3rem] 2xl:bg-[left_50rem_top_2rem] md:bg-right-top bg-[length:650px_800px] xl:bg-[length:650px_900px] bg-no-repeat h-[500px] lg:h-[400px]'>
                 <div className='container flex items-center px-6 2xl:px-0'>
                     <div className='w-full lg:w-2/3 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
