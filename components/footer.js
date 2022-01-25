@@ -1,16 +1,10 @@
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faCaretDown, faCaretUp } from '@fortawesome/pro-solid-svg-icons'
 
 export default function Footer({ myMenu, services }) {
-    const [ networkOpen, setNetworkOpen ] = useState(false)
-
-    const toggleNetworkOpen = () => {
-        setNetworkOpen(!networkOpen)
-    }
+    console.log(myMenu)
     
     return (
         <div className='bg-justice-gray w-full py-14 px-6 2xl:px-0'>
@@ -21,35 +15,16 @@ export default function Footer({ myMenu, services }) {
                     </div>
                     {myMenu.menuItems.nodes.map((el) => (
                         <div className='relative uppercase text-white/50 mb-1' key={el.id}>
-                            {(!el.parentId && el.label !== 'Network') &&
+                            {el.label !== 'Donate' ?
                                 <Link href={el.path}>
                                     <a>
                                         {el.label}
                                     </a>
                                 </Link>
-                            }
-                            {!el.parentId && el.label === 'Network' &&
-                                <div onClick={() => toggleNetworkOpen()} className={`cursor-pointer`}>
+                            :
+                                <a href={el.path} target='_blank' rel='noreferrer'>
                                     {el.label}
-                                    {!networkOpen ?
-                                        <FontAwesomeIcon className='ml-1' icon={faCaretDown}/>
-                                    :
-                                        <FontAwesomeIcon className='ml-1' icon={faCaretUp}/>
-                                    }
-                                </div>
-                            }
-                            {networkOpen &&
-                                <div className='absolute top-0 -left-1 bg-stone-300 text-justice-stone z-50 px-1'>
-                                    {el.parentId &&
-                                        myMenu.menuItems.nodes.filter(el => el.parentId).map((el) => (
-                                            <div className='mb-1' key={el.path}>
-                                                <a href={el.path} target='_blank' rel='noreferrer'>
-                                                    {el.label}
-                                                </a>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
+                                </a>
                             }
                         </div>
                     ))}
@@ -113,9 +88,15 @@ export default function Footer({ myMenu, services }) {
                         NETWORK
                     </div>
                     <div className='text-white/50 text-xs font-bold'>
-                        <div className='mb-3'>Sirona Recovery Inc.</div>
-                        <div className='mb-3'>JusticePoint</div>
-                        <div className='mb-3'>Justice Initiatives Institute</div>
+                        <a href='https://sironarecovery.org' target='_blank' rel='noreferrer'>
+                            <div className='mb-3'>Sirona Recovery Inc.</div>
+                        </a>
+                        <a href='https://justicepoint.org' target='_blank' rel='noreferrer'>
+                            <div className='mb-3'>JusticePoint</div>
+                        </a>
+                        <a href='https://www.jiinstitute.org/' target='_blank' rel='noreferrer'>
+                            <div className='mb-3'>Justice Initiatives Institute</div>
+                        </a>
                     </div>
                 </div>
             </div>

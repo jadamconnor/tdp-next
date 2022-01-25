@@ -55,13 +55,20 @@ export default function Header({ myMenu }) {
                             </a>
                         </Link>
                         <div className='hidden lg:flex w-fit text-justice-gray gap-5 h-fit mt-8'>
-                            {myMenu.menuItems.nodes.map((el) => (
-                                <Link href={el.path} key={el.id}>
-                                    <a className='uppercase text-lg tracking-widest cursor-pointer'>
-                                        {el.label}
-                                    </a>
-                                </Link>
-                            ))}
+                            {myMenu.menuItems.nodes.map((el) => {
+                                return (
+                                    el.label !== 'Donate' ?
+                                        <Link href={el.path} key={el.id}>
+                                            <a className='uppercase text-lg tracking-widest cursor-pointer'>
+                                                {el.label}
+                                            </a>
+                                        </Link>
+                                    :
+                                        <a href={el.path} target='_blank' rel='noreferrer' className='uppercase text-lg tracking-widest cursor-pointer'>
+                                            {el.label}
+                                        </a>
+                                )
+                            })}
                         </div>
                         {!mobileNav &&
                             <div onClick={toggleMobileNav} className='flex lg:hidden w-fit text-justice-gray text-3xl gap-5 h-fit'>

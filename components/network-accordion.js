@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/pro-solid-svg-icons'
-import Image from 'next/image'
 
 export default function NetworkAccordion({ copy }) {
 
@@ -29,7 +28,7 @@ export default function NetworkAccordion({ copy }) {
             <div className={`grid lg:grid-cols-3 gap-x-12 transition-all ease-in-out duration-300 ${isShowing ? 'h-full' : 'h-0'}`}>
                 {copy.partner.map((partner, index) => (
                     <div className='col-span-1' key={partner.blurb}>
-                        <div className={`relative h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'} ${partner.name === 'JusticePoint' ? 'w-3/5 xl:w-5/12' : 'w-1/2 xl:w-1/3'}`}>
+                        <div className={`relative h-28 mx-auto mb-6 ${isShowing ? 'block' : 'hidden'} ${partner.name === 'JusticePoint' ? 'w-3/5 xl:w-5/12' : 'w-1/2 xl:w-1/4'}`}>
                             <img
                                 className={`absolute  ${partner.name === 'JusticePoint' ? '-bottom-4' : 'bottom-0'}`}
                                 src={partner.logo.sourceUrl}
