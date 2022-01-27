@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer({ myMenu, services }) {
     
@@ -34,6 +34,12 @@ export default function Footer({ myMenu, services }) {
                             FOLLOW US
                         </div>
                         <div className='flex text-white/50 text-2xl gap-2'>
+                            <a href='https://www.facebook.com/TheDifferencePrinciple' target='_blank' rel='noreferrer'>
+                                <FontAwesomeIcon icon={faFacebook}/>
+                            </a>
+                            <a href='https://twitter.com/DiffPrinciple' target='_blank' rel='noreferrer'>
+                                <FontAwesomeIcon icon={faTwitter}/>
+                            </a>
                             <a href='https://www.linkedin.com/company/10448013' target='_blank' rel='noreferrer'>
                                 <FontAwesomeIcon icon={faLinkedin}/>
                             </a>
