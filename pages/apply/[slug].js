@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
             slug: params.slug,
             services: services
         },
-        revalidate: 60
+        revalidate: 1
     }
 }
 
@@ -38,7 +38,7 @@ export default function Apply({ openingFields, primaryNav, footerNav, services, 
             <Header myMenu={primaryNav}/>
             {/* Intro */}
             {openingFields.map((el) => (
-                <div className='container px-6 xl:px-12 3xl:px-0' key={el.id}>
+                <div className='container px-6 xl:px-28 2xl:px-0' key={el.id}>
                     <div className='w-full lg:w-1/2 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {el.openingFields.jobTitle}

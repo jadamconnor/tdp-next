@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer({ myMenu, services }) {
-    console.log(myMenu)
     
     return (
         <div className='bg-justice-gray w-full py-14 px-6  xl:px-28 2xl:px-0'>

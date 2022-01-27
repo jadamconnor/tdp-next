@@ -8,6 +8,9 @@ export default ({ jobOpening }) => {
     })
     jobLocations = jobLocations.toString()
     let jobTitle = jobOpening[0].openingFields.jobTitle
+    let applicationAddressee = jobOpening[0].openingFields.applicationAddressee
+    const d = new Date()
+    let date = d.toLocaleString()
 
     const[ resume, setResume ] = useState(null)
     const[ coverLetter, setCoverLetter ] = useState(null)
@@ -129,6 +132,7 @@ export default ({ jobOpening }) => {
         const formData = new FormData()
         formData.append('Job Title', jobTitle)
         formData.append('Job Location', jobLocations)
+        formData.append('Addressee', applicationAddressee || 'dimig@justicepoint.org')
         formData.append('Resume', resume)
         formData.append('Cover Letter', coverLetter)
         formData.append('Name', inputs.fullName)
@@ -139,6 +143,7 @@ export default ({ jobOpening }) => {
         formData.append('Race', race)
         formData.append('Disabled Vet', disVet)
         formData.append('Disabled Individual', disInd)
+        formData.append('date', date)
         setStatus((prevStatus) => ({ ...prevStatus, submitting: true }))
         Object.keys(validate()).length === 0 ?
             axios({
@@ -160,7 +165,7 @@ export default ({ jobOpening }) => {
             setValidationErrors(validate())
     }
     return (
-        <div className='container mb-28 px-6  xl:px-28 2xl:px-0'>
+        <div className='container mb-28 px-6 xl:px-28 2xl:px-0'>
             <main>
                 <form onSubmit={handleOnSubmit} encType='multipart/form-data'>
                     <div className='flex flex-wrap justify-between'>
@@ -255,7 +260,7 @@ export default ({ jobOpening }) => {
                                         onChange={handleOnChangeResume}
                                         hidden
                                     />
-                                    <label className='flex justify-center items-center text-white bg-justice-blue rounded-2xl h-12 cursor-pointer' htmlFor='resume'>
+                                    <label className='flex justify-center items-center text-white bg-justice-blue font-semibold rounded-2xl h-12 cursor-pointer' htmlFor='resume'>
                                         {resume ? <span>{resume.name.substring(0,25)}</span> : <span>UPLOAD FILE</span>}
                                     </label>
                                     <div className='h-3'>
@@ -273,7 +278,7 @@ export default ({ jobOpening }) => {
                                         onChange={handleOnChangeCoverLetter}
                                         hidden
                                     />
-                                    <label className='flex justify-center items-center text-white bg-justice-blue rounded-2xl h-12 cursor-pointer' htmlFor='coverLetter'>
+                                    <label className='flex justify-center items-center text-white bg-justice-blue font-semibold rounded-2xl h-12 cursor-pointer' htmlFor='coverLetter'>
                                         {coverLetter ? <span>{coverLetter.name.substring(0,25)}</span> : <span>UPLOAD FILE</span>}
                                     </label>
                                     <div className='h-3'>
@@ -387,12 +392,12 @@ export default ({ jobOpening }) => {
                         </div>
                     </div>
                     <div className='flex justify-center mt-12 mb-3'>
-                        <button className='bg-justice-blue text-white text-sm font-bold rounded-lg py-3 px-6 tracking-wider' type='submit' disabled={status.submitting}>
+                        <button className='bg-justice-blue text-white font-semibold rounded-lg py-3 px-6 tracking-wider' type='submit' disabled={status.submitting}>
                             {!status.submitting
                                 ? !status.submitted
-                                ? 'SUBMIT'
-                                : 'SUBMITTED'
-                                : 'SUBMITTING...'
+                                ? 'Submit'
+                                : 'Submitted'
+                                : 'Submitting...'
                             }
                         </button>
                     </div>
