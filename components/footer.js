@@ -6,8 +6,8 @@ import { faLinkedin, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-
 export default function Footer({ myMenu, services }) {
     
     return (
-        <div className='bg-justice-gray w-full py-32 px-6 xl:px-20 2xl:px-0'>
-            <div className='container grid md:grid-cols-5 gap-5'>
+        <div className='bg-justice-gray w-full'>
+            <div className='container grid md:grid-cols-5 gap-5 py-32 px-6 xl:px-20 2xl:px-0'>
                 <div className='mb-6 md:mb-0'>
                     <div className='text-xs text-justice-blue font-bold tracking-widest border-b border-b-justice-brown pb-3 mb-3'>
                         CONTENT
