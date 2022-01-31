@@ -7,13 +7,15 @@ export async function getStaticProps({ params }) {
     const data = await getJobOpenings()
     const primaryNavMenu = await getPrimaryMenu()
     const footerNavMenu = await getFooterMenu()
+    const services = await getServicesItems()
 
     return {
         props: {
             openingFields: data.nodes,
             primaryNav: primaryNavMenu.menus.edges[0].node,
             footerNav: footerNavMenu.menus.edges[0].node,
-            slug: params.slug
+            slug: params.slug,
+            services: services
         },
         revalidate: 60
     }
@@ -28,14 +30,14 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function JobOpening({ openingFields, primaryNav, footerNav, slug }) {
+export default function JobOpening({ openingFields, primaryNav, footerNav, slug, services }) {
     openingFields = openingFields.filter((el) => el.slug === slug)
     
     return (
         <div>
             <Header myMenu={primaryNav}/>
             {openingFields.map((el) => (
-                <div className='container my-28 px-6  xl:px-28 2xl:px-0' key={el.id}>
+                <div className='container my-28 px-6  xl:px-20 2xl:px-0' key={el.id}>
                     <div className='flex flex-wrap justify-between'>
                         <div className='w-full lg:w-1/2 mb-6'>
                             <div className='text-justice-stone text-5xl font-serif mb-8'>
@@ -55,7 +57,11 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug 
                                 Deadline:
                             </div>
                             <div className='col-span-3 text-justice-stone text-sm'>
-                                {el.openingFields.applicationDeadline}
+                                {el.openingFields.applicationDeadline ? 
+                                    el.openingFields.applicationDeadline
+                                :
+                                    'Until Filled'
+                                }
                             </div>
                             <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                                 Agency:
@@ -110,6 +116,7 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug 
                     </div>
                 </div>
             ))}
+            <Footer myMenu={footerNav} services={services}/>
         </div>
     )
 }

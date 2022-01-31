@@ -102,7 +102,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>
-                <div className='container flex items-center px-6  xl:px-28 2xl:px-0'>
+                <div className='container flex items-center px-6  xl:px-20 2xl:px-0'>
                     <div className='w-full lg:w-2/3 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {careersFields.intro[0].heading}
@@ -113,7 +113,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                     </div>
                 </div>
             <FilterBar chips={chips} onAddChip={addChip} onRemoveChip={removeChip} selectItems={filterSelects} />
-            <div className='container px-6  xl:px-28 2xl:px-0'>
+            <div className='container px-6  xl:px-20 2xl:px-0'>
                 <div className='text-5xl text-justice-stone font-serif w-fit underline underline-offset-[12px] leading-[70px] decoration-1 pb-1 mb-5'>
                     Current Positions
                 </div>

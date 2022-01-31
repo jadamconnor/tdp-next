@@ -69,7 +69,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     />
                 </Fade>
                 <div className='absolute flex flex-wrap items-center w-full h-full'>
-                    <div className='container px-6  xl:px-28 2xl:px-0'>
+                    <div className='container px-6  xl:px-20 2xl:px-0'>
                         <div className='lg:w-1/2'>
                             <div className='font-serif text-white text-5xl mb-6'>
                                 {richHeroHeading}
@@ -91,19 +91,19 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* Lead-in */}
             <div className='bg-[url("/FullWidthImage1.jpg")] bg-center bg-cover bg-no-repeat bg-justice-blue'>
                 <div className='container flex items-center w-full h-full'>
-                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32 px-6  xl:px-28 2xl:px-0'>
+                    <div className='h-fit text-white text-3xl lg:text-5xl font-serif text-center leading-snug lg:leading-snug py-32 px-6  xl:px-20 2xl:px-0'>
                         {homeFields.leadIn[0].leadInText}
                     </div>
                 </div>
             </div>
             {/* Contact CTA */}
             <div className='bg-justice-stone'>
-                <div className='flex justify-center text-white py-5 px-6  xl:px-28 2xl:px-0'>
+                <div className='flex justify-center text-white py-3 px-6  xl:px-20 2xl:px-0'>
                     <div className='unreset text-lg' dangerouslySetInnerHTML={{__html: homeFields.contactCta}} />
                 </div>
             </div>
             {/* Services */}
-            <div className='container grid grid-cols-1 gap-x-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6  xl:px-28 2xl:px-0'>
+            <div className='container grid grid-cols-1 gap-x-20 sm:grid-cols-2 lg:grid-cols-3 my-16 px-6  xl:px-20 2xl:px-0'>
                 {services.map((el) => (
                     <div className='text-center justify-center py-8' key={el.id}>
                         <div className='relative w-12 h-12 mb-4 mx-auto'>
@@ -139,7 +139,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
             {/* About CTA */}
             <RichCta myFields={contactCTA}/>
             {/* News Preview */}
-            <div className='container my-14 px-6  xl:px-28 2xl:px-0'>
+            <div className='container my-14 px-6  xl:px-20 2xl:px-0'>
                 <div className='font-serif text-justice-stone text-4xl w-fit border-b border-b-black pb-3 mb-5'>
                     Recent News
                 </div>

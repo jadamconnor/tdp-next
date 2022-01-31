@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Openings({ openings, onAddChip }) {
     return (
-        <div className='container px-6  xl:px-28 2xl:px-0 mb-12'>
+        <div className='container px-6  xl:px-20 2xl:px-0 mb-12'>
             {openings.map((el) => (
                 <div className='border-b border-b-neutral-400' key={el.id}>
                     <div className='flex flex-wrap justify-between pt-12 mb-3' key={el.id}>
@@ -30,7 +30,11 @@ export default function Openings({ openings, onAddChip }) {
                                 Deadline:
                             </div>
                             <div className='col-span-3 text-justice-stone text-sm'>
-                                {el.openingFields.applicationDeadline}
+                                {el.openingFields.applicationDeadline ?
+                                    el.openingFields.applicationDeadline
+                                :
+                                    'Until Filled'
+                                }
                             </div>
                             <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                                 Agency:

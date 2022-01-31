@@ -12,7 +12,7 @@ export default function FilterBar({ chips, onAddChip, onRemoveChip, selectItems 
     }
 
     return (
-        <div className='container my-12 px-6  xl:px-28 2xl:px-0'>
+        <div className='container my-12 px-6  xl:px-20 2xl:px-0'>
             <div className='flex flex-wrap gap-3 my-6 min-h-[32px]'>
                 {chips.length > 0 &&
                     chips.map((chip) => (

@@ -165,7 +165,7 @@ export default ({ jobOpening }) => {
             setValidationErrors(validate())
     }
     return (
-        <div className='container mb-28 px-6 xl:px-28 2xl:px-0'>
+        <div className='container mb-28 px-6 xl:px-20 2xl:px-0'>
             <main>
                 <form onSubmit={handleOnSubmit} encType='multipart/form-data'>
                     <div className='flex flex-wrap justify-between'>

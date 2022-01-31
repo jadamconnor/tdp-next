@@ -46,7 +46,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
             <Header myMenu={primaryNav}/>
             {/* Intro */}
             <div className='bg-[url("/Spotlogo2.png")] bg-size xl:bg-[left_30rem_top_3rem] 2xl:bg-[left_50rem_top_2rem] md:bg-right-top bg-[length:650px_800px] xl:bg-[length:650px_900px] bg-no-repeat h-[500px] lg:h-[400px]'>
-                <div className='container flex items-center px-6 xl:px-28 px-6 xl:px-28 2xl:px-0'>
+                <div className='container flex items-center px-6 xl:px-20 2xl:px-0'>
                     <div className='w-full lg:w-2/3 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>
                             {servicesFields.intro[0].heading}
@@ -72,7 +72,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
                 />
             </div>
             {/* Services */}
-            <div className='container my-28 px-6 xl:px-28'>
+            <div className='container my-28 px-6 xl:px-20'>
                 {services.map((service) => (
                     <ServicesAccordion service={service} key={service.id}/>
                 ))}
