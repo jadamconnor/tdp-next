@@ -10,7 +10,7 @@ export default function Openings({ openings, onAddChip }) {
                             <Link href={`/careers/${el.slug}`}>
                                 <a>
                                     <div className='text-justice-blue text-xl font-serif font-light mb-5'>
-                                        {el.openingFields.jobTitle}
+                                        {el.title}
                                     </div>
                                 </a>
                             </Link>

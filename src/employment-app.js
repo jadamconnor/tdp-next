@@ -7,7 +7,7 @@ export default ({ jobOpening }) => {
         jobLocations.push(el.location)
     })
     jobLocations = jobLocations.toString()
-    let jobTitle = jobOpening[0].openingFields.jobTitle
+    let jobTitle = jobOpening[0].title
     let applicationAddressee = jobOpening[0].openingFields.applicationAddressee
     const d = new Date()
     let date = d.toLocaleString()

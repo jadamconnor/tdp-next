@@ -41,7 +41,7 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                     <div className='flex flex-wrap justify-between'>
                         <div className='w-full lg:w-1/2 mb-6'>
                             <div className='text-justice-stone text-5xl font-serif mb-8'>
-                                {el.openingFields.jobTitle}
+                                {el.title}
                             </div>
                             <div className='unreset text-justice-stone' dangerouslySetInnerHTML={{__html: el.openingFields.positionSummary}}/>
                             <div className='unreset text-justice-stone' dangerouslySetInnerHTML={{__html: el.openingFields.fullDescription}}/>
