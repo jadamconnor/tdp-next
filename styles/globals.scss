@@ -6,7 +6,9 @@ body {
 @import "~tailwindcss/utilities";
 @import '../styles/unreset.scss';
 
-
+body {
+  color: #5A5047;
+}
 
 *, :after, :before {
   -webkit-font-smoothing: antialiased;
