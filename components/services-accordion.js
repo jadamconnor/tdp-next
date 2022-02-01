@@ -53,7 +53,7 @@ export default function ServicesAccordion({ service }) {
                                         ${(index < responsibilityCt - 1) ? 
                                             'border-b-justice-blue' 
                                         : 
-                                            'border-white'
+                                            'border-white/0'
                                         }`
                                     } 
                                     key={el.label}
@@ -82,7 +82,7 @@ export default function ServicesAccordion({ service }) {
                                         ${(index < responsibilityCt) ? 
                                             'border-b-justice-blue' 
                                         : 
-                                            'border-white'
+                                            'border-white/0'
                                         }`
                                     } 
                                     key={el.label + index}

@@ -5,7 +5,7 @@ export default function NewsItems({ newsItems, onAddChip }) {
         <div className='container px-6  xl:px-20 2xl:px-0 mb-12'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 -mx-5'>
                 {newsItems.map((item) => (
-                    <div className='col-span-1 hover:bg-stone-100 p-5 rounded-xl' key={item.node.newsItemFields.title}>
+                    <div className='col-span-1 h-fit hover:bg-stone-100 p-5 rounded-xl' key={item.node.newsItemFields.title}>
                         <div className='font-serif text-2xl text-justice-blue mb-3'>
                             {!item.node.newsItemFields.external ?
                                 <Link href={`/news/${item.node.newsItemFields.url}`}>
