@@ -170,13 +170,13 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                     {news.slice(0,2).map((el) => (
                         <div className='lg:col-span-1' key={el.node.newsItemFields.blurb}>
                             {!el.node.newsItemFields.external ?
-                            <Link href={`/news/${el.node.slug}`}>
-                                <a>
-                                    <div className='text-justice-blue text-2xl font-serif mb-2'>
-                                        {el.node.newsItemFields.title}
-                                    </div>
-                                </a>
-                            </Link>
+                                <Link href={`/news/${el.node.slug}`}>
+                                    <a>
+                                        <div className='text-justice-blue text-2xl font-serif mb-2'>
+                                            {el.node.newsItemFields.title}
+                                        </div>
+                                    </a>
+                                </Link>
                             :
                                 <a href={el.node.newsItemFields.url} target='_blank' rel='noreferrer'>
                                     <div className='text-justice-blue text-2xl font-serif mb-2'>

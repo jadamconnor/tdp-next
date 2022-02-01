@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
             slug: params.slug,
             services: services
         },
-        revalidate: 1
+        revalidate: 60
     }
 }
 

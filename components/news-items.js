@@ -8,7 +8,7 @@ export default function NewsItems({ newsItems, onAddChip }) {
                     <div className='col-span-1 h-fit hover:bg-stone-100 p-5 rounded-xl' key={item.node.newsItemFields.title}>
                         <div className='font-serif text-2xl text-justice-blue mb-3'>
                             {!item.node.newsItemFields.external ?
-                                <Link href={`/news/${item.node.newsItemFields.url}`}>
+                                <Link href={`/news/${item.node.slug}`}>
                                     <a>
                                         {item.node.newsItemFields.title}
                                     </a>

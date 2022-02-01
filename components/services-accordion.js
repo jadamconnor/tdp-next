@@ -20,7 +20,7 @@ export default function ServicesAccordion({ service }) {
             key={service.id}
         >
             <div className='flex justify-center'>
-                <div className='text-3xl text-justice-stone font-serif w-fit border-b border-b-justice-stone pb-1 mb-6'>
+                <div className='text-3xl text-justice-stone font-serif w-fit  text-center underline decoration-1 underline-offset-[12px] leading-[50px] mb-6'>
                     {service.name}
                 </div>
             </div>
