@@ -11,7 +11,7 @@ export async function getStaticProps({ params }) {
     const footerNavMenu = await getFooterMenu()
     const services = await getServicesItems()
 
-    if (!data.nodes) {
+    if (!data.newsItems.edges) {
         return {
             notFound: true
         }
