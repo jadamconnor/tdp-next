@@ -104,7 +104,8 @@ export default function Footer({ myMenu, services }) {
                         </a>
                     </div>
                 </div>
-                <div className='col-span-5 w-full flex justify-end'>
+            </div>
+            <div className='container flex lg:justify-end px-6 xl:px-20 2xl:px-0'>
                     <a
                         href='https://www.bbb.org/us/wi/milwaukee/profile/non-profit-organizations/the-difference-principle-inc-0694-1000046343/#sealclick'
                         id='bbblink'
@@ -119,7 +120,6 @@ export default function Footer({ myMenu, services }) {
                         />
                     </a>
                 </div>
-            </div>
         </div>
     )
 }
