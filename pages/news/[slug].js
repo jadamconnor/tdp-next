@@ -1,4 +1,4 @@
-import { getServicesItems, getPrimaryMenu, getFooterMenu, getNewsItems } from '../../lib/api'
+import { getServicesItems, getPrimaryMenu, getFooterMenu, getNewsItems, getNewsItemBySlug } from '../../lib/api'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Link from 'next/link'
@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretLeft } from '@fortawesome/pro-light-svg-icons'
 
 export async function getStaticProps({ params }) {
-    const data = await getNewsItems()
+    const data = await getNewsItemBySlug(params.slug)
     const primaryNavMenu = await getPrimaryMenu()
     const footerNavMenu = await getFooterMenu()
     const services = await getServicesItems()
 
-    if (!data.newsItems.edges) {
+    if (!data.newsItemBy) {
         return {
             notFound: true
         }
@@ -19,7 +19,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            newsItems: data.newsItems.edges, 
+            newsItem: data.newsItemBy, 
             primaryNav: primaryNavMenu.menus.edges[0].node,
             footerNav: footerNavMenu.menus.edges[0].node,
             services: services,
@@ -38,8 +38,7 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function NewsItem({ newsItems, primaryNav, footerNav, slug, services }) {
-    const newsItem = newsItems.filter((el) => el.node.slug === slug)
+export default function NewsItem({ newsItem, primaryNav, footerNav, slug, services }) {
     
     return (
         <div>
@@ -53,13 +52,15 @@ export default function NewsItem({ newsItems, primaryNav, footerNav, slug, servi
                 </Link>
             </div>
             <div className='container px-6  xl:px-20 2xl:px-0'>
-                <div className='font-serif text-4xl mt-12'>
-                    {newsItem[0].node.newsItemFields.title}
-                </div>
-                <div className='mt-3'>
-                    {newsItem[0].node.newsItemFields.published}
-                </div>
-                <div className='news mt-6' dangerouslySetInnerHTML={{__html: newsItem[0].node.newsItemFields.content}}>
+                <div className='lg:w-3/4'>
+                    <div className='font-serif text-4xl mt-12'>
+                        {newsItem.newsItemFields.title}
+                    </div>
+                    <div className='mt-3'>
+                        {newsItem.newsItemFields.published}
+                    </div>
+                    <div className='news mt-6' dangerouslySetInnerHTML={{__html: newsItem.newsItemFields.content}}>
+                    </div>
                 </div>
             </div>
             <div className='container text-justice-blue text-lg my-28 px-6  xl:px-20 2xl:px-0'>

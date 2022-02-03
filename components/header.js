@@ -64,7 +64,7 @@ export default function Header({ myMenu }) {
                                             </a>
                                         </Link>
                                     :
-                                        <a href={el.path} target='_blank' rel='noreferrer' className='uppercase text-lg tracking-widest cursor-pointer'>
+                                        <a href={el.path} key={el.id} target='_blank' rel='noreferrer' className='uppercase text-lg tracking-widest cursor-pointer'>
                                             {el.label}
                                         </a>
                                 )

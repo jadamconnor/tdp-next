@@ -1,15 +1,15 @@
 import EmploymentApp from '../../src/employment-app'
-import { getJobOpenings, getServicesItems, getPrimaryMenu, getFooterMenu } from '../../lib/api'
+import { getJobOpenings, getJobOpeningBySlug, getServicesItems, getPrimaryMenu, getFooterMenu } from '../../lib/api'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 
 export async function getStaticProps({ params }) {
-    const data = await getJobOpenings()
+    const data = await getJobOpeningBySlug(params.slug)
     const primaryNavMenu = await getPrimaryMenu()
     const footerNavMenu = await getFooterMenu()
     const services = await getServicesItems()
 
-    if (!data.nodes) {
+    if (!data.openingBy) {
         return {
             notFound: true
         }
@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            openingFields: data.nodes,
+            openingFields: data.openingBy,
             primaryNav: primaryNavMenu.menus.edges[0].node,
             footerNav: footerNavMenu.menus.edges[0].node,
             slug: params.slug,
@@ -37,24 +37,21 @@ export async function getStaticPaths() {
 }
 
 export default function Apply({ openingFields, primaryNav, footerNav, services, slug }) {
-    openingFields = openingFields.filter((el) => el.slug === slug)
 
     return (
         <div>
             <Header myMenu={primaryNav}/>
             {/* Intro */}
-            {openingFields.map((el) => (
-                <div className='container px-6 xl:px-20 2xl:px-0' key={el.id}>
-                    <div className='w-full lg:w-1/2 my-36'>
-                        <div className='text-5xl text-justice-stone font-serif mb-3'>
-                            {el.title}
-                        </div>
-                        <div className='text-justice-stone text-3xl'>
-                            Please fill out the application below
-                        </div>
+            <div className='container px-6 xl:px-20 2xl:px-0' key={openingFields.id}>
+                <div className='w-full lg:w-1/2 my-36'>
+                    <div className='text-5xl text-justice-stone font-serif mb-3'>
+                        {openingFields.title}
+                    </div>
+                    <div className='text-justice-stone text-3xl'>
+                        Please fill out the application below
                     </div>
                 </div>
-            ))}
+            </div>
             <EmploymentApp jobOpening={openingFields}/>
             <Footer myMenu={footerNav} services={services}/>
         </div>

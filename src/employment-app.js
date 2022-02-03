@@ -3,12 +3,12 @@ import axios from 'axios'
 
 export default ({ jobOpening }) => {
     let jobLocations = []
-    jobOpening[0].openingFields.location.map((el) => {
+    jobOpening.openingFields.location.map((el) => {
         jobLocations.push(el.location)
     })
     jobLocations = jobLocations.toString()
-    let jobTitle = jobOpening[0].title
-    let applicationAddressee = jobOpening[0].openingFields.applicationAddressee
+    let jobTitle = jobOpening.title
+    let applicationAddressee = jobOpening.openingFields.applicationAddressee
     const d = new Date()
     let date = d.toLocaleString()
 
@@ -395,9 +395,9 @@ export default ({ jobOpening }) => {
                         <button className='bg-justice-blue text-white font-semibold rounded-lg py-3 px-6 tracking-wider' type='submit' disabled={status.submitting}>
                             {!status.submitting
                                 ? !status.submitted
-                                ? 'Submit'
-                                : 'Submitted'
-                                : 'Submitting...'
+                                ? 'SUBMIT'
+                                : 'SUBMITTED'
+                                : 'SUBMITTING...'
                             }
                         </button>
                     </div>
