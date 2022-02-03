@@ -54,6 +54,7 @@ function MyApp({ Component, pageProps }) {
                 `,
                 }}
             />
+            <Script strategy='afterInteractive' src="https://seal-wisconsin.bbb.org/inc/legacy.js"/>
             <Component {...pageProps} />
         </>
         )
