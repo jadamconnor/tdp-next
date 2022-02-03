@@ -106,20 +106,20 @@ export default function Footer({ myMenu, services }) {
                 </div>
             </div>
             <div className='container flex lg:justify-end px-6 xl:px-20 2xl:px-0'>
-                    <a
-                        href='https://www.bbb.org/us/wi/milwaukee/profile/non-profit-organizations/the-difference-principle-inc-0694-1000046343/#sealclick'
-                        id='bbblink'
-                        className='ruvtbum'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        <img
-                            src='https://seal-wisconsin.bbb.org/logo/ruvtbum/bbb-1000046343.png'
-                            className='border-0 h-20'
-                            alt='The Difference Principle, Inc. BBB Business Review'
-                        />
-                    </a>
-                </div>
+                <a
+                    href='https://www.bbb.org/us/wi/milwaukee/profile/non-profit-organizations/the-difference-principle-inc-0694-1000046343/#sealclick'
+                    id='bbblink'
+                    className='ruvtbum'
+                    target='_blank'
+                    rel='noreferrer'
+                >
+                    <img
+                        src='https://seal-wisconsin.bbb.org/logo/ruvtbum/bbb-1000046343.png'
+                        className='border-0 h-20'
+                        alt='The Difference Principle, Inc. BBB Business Review'
+                    />
+                </a>
+            </div>
         </div>
     )
 }
