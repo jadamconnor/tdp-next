@@ -105,20 +105,38 @@ export default function Footer({ myMenu, services }) {
                     </div>
                 </div>
             </div>
-            <div className='container flex lg:justify-end px-6 xl:px-20 2xl:px-0'>
-                <a
-                    href='https://www.bbb.org/us/wi/milwaukee/profile/non-profit-organizations/the-difference-principle-inc-0694-1000046343/#sealclick'
-                    id='bbblink'
-                    className='ruvtbum'
-                    target='_blank'
-                    rel='noreferrer'
-                >
-                    <img
-                        src='https://seal-wisconsin.bbb.org/logo/ruvtbum/bbb-1000046343.png'
-                        className='border-0 h-20'
-                        alt='The Difference Principle, Inc. BBB Business Review'
-                    />
-                </a>
+            <div className='bg-justice-brown'>
+                <div className='container lg:flex items-center lg:justify-between py-10 px-6 xl:px-20 2xl:px-0'>
+                    <div className='mb-5 lg:m-0'>
+                        <a href='https://nam04.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsmile.amazon.com%2Fch%2F46-2088738&data=04%7C01%7C%7C656a856ef47040f31d6a08d9f235d67f%7C85242b9802404bf4a66ff5a5f0df0779%7C0%7C0%7C637807135316797477%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=U%2Bi26M5AbMmxAarkWdQUJOFEaa0nvZoZhRB730AM1Lc%3D&reserved=0' target='_blank' rel='noreferrer'>
+                            <div className='flex items-center justify-between'>
+                                <div className='flex gap-x-5 items-center'>
+                                    <div className='w-40 py-2 pr-5 border-white/50 border-r-[1px]'>
+                                        <img src='/AmazonSmile.png'/>
+                                    </div>
+                                    <div className='text-xs md:text-sm pb-1 text-white/50'>
+                                        Amazon donates to <b>Sirona Recovery</b> when you shop at <b className='text-white/70'>amazon.smile.com</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a
+                            href='https://www.bbb.org/us/wi/milwaukee/profile/non-profit-organizations/the-difference-principle-inc-0694-1000046343/#sealclick'
+                            id='bbblink'
+                            className='ruvtbum'
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            <img
+                                src='https://seal-wisconsin.bbb.org/seals/darkgray-seal-200-42-whitetxt-bbb-1000046343.png'
+                                className='border-0 h-10'
+                                alt='The Difference Principle, Inc. BBB Business Review'
+                            />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     )
