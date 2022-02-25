@@ -40,6 +40,9 @@ export default function Contact({ primaryNav, footerNav, services }) {
                         <div className='text-2xl'>
                             Interested in learning more about our services and how they can benefit you? Contact us here!
                         </div>
+                        <div className='mt-6'>
+                            For media inquiries, please email <a className='text-justice-blue' href='mailto:dimig@differenceprinciple.org'>dimig@differenceprinciple.org</a>
+                        </div>
                     </div>
                     <div className='col-span-1'>
                         <JotformEmbed src='https://hipaa.jotform.com/220185881555158'/>
