@@ -115,7 +115,7 @@ export default function Footer({ myMenu, services }) {
                                         <img src='/AmazonSmile.png'/>
                                     </div>
                                     <div className='text-xs md:text-sm pb-1 text-white/50'>
-                                        Amazon donates to <b>Sirona Recovery</b> when you shop at <b className='text-white/70'>amazon.smile.com</b>
+                                        Amazon donates to <b>The Difference Principle</b> when you shop at <b className='text-white/70'>smile.amazon.com</b>
                                     </div>
                                 </div>
                             </div>
