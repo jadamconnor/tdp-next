@@ -130,7 +130,7 @@ export default function Footer({ myMenu, services }) {
                             rel='noreferrer'
                         >
                             <img
-                                src='https://seal-wisconsin.bbb.org/seals/darkgray-seal-200-42-whitetxt-bbb-1000046343.png'
+                                src='bbb.png'
                                 className='border-0 h-10'
                                 alt='The Difference Principle, Inc. BBB Business Review'
                             />
