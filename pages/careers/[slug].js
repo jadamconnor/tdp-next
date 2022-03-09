@@ -70,37 +70,105 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                         <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                             Agency:
                         </div>
-                        <div className='col-span-3 text-justice-stone text-sm'>
-                            {openingFields.openingFields.agency}
-                        </div>
+                        {openingFields.openingFields.agency === 'The Difference Principle' &&
+                            <div className='col-span-3 text-justice-blue text-sm'>
+                                {openingFields.openingFields.agency}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'JusticePoint' &&
+                            <div className='col-span-3 text-justice-orange text-sm'>
+                                {openingFields.openingFields.agency}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                            <div className='col-span-3 text-justice-green text-sm'>
+                                {openingFields.openingFields.agency}
+                            </div>
+                        }
                         <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                             Program:
                         </div>
-                        <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
-                            {openingFields.openingFields.programTypes.map((e, index) => (
-                                <div onClick={() => onAddChip(e.programType)} key={Object.keys(e)}>
-                                    {index !== openingFields.openingFields.programTypes.length - 1 ?
-                                        <span>{e.programType}, </span>
-                                    :
-                                        <span>{e.programType}</span>
-                                    }
-                                </div>
-                            ))}
-                        </div>
+                        {openingFields.openingFields.agency === 'The Difference Principle' &&
+                            <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
+                                {openingFields.openingFields.programTypes.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.programType)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.programTypes.length - 1 ?
+                                            <span>{e.programType}, </span>
+                                        :
+                                            <span>{e.programType}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'JusticePoint' &&
+                            <div className='col-span-3 text-justice-orange text-sm cursor-pointer'>
+                                {openingFields.openingFields.programTypes.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.programType)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.programTypes.length - 1 ?
+                                            <span>{e.programType}, </span>
+                                        :
+                                            <span>{e.programType}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                            <div className='col-span-3 text-justice-green text-sm cursor-pointer'>
+                                {openingFields.openingFields.programTypes.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.programType)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.programTypes.length - 1 ?
+                                            <span>{e.programType}, </span>
+                                        :
+                                            <span>{e.programType}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
                         <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                             Location:
                         </div>
-                        <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
-                            {openingFields.openingFields.location.map((e, index) => (
-                                <div onClick={() => onAddChip(e.location)} key={Object.keys(e)}>
-                                    {index !== openingFields.openingFields.location.length - 1 ?
-                                        <span>{e.location}, </span>
-                                    :
-                                        <span>{e.location}</span>
-                                    }
-                                </div>
-                            ))}
-                        </div>
+                        {openingFields.openingFields.agency === 'The Difference Principle' &&
+                            <div className='col-span-3 text-justice-blue text-sm cursor-pointer'>
+                                {openingFields.openingFields.location.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.location)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.location.length - 1 ?
+                                            <span>{e.location}, </span>
+                                        :
+                                            <span>{e.location}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'JusticePoint' &&
+                            <div className='col-span-3 text-justice-orange text-sm cursor-pointer'>
+                                {openingFields.openingFields.location.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.location)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.location.length - 1 ?
+                                            <span>{e.location}, </span>
+                                        :
+                                            <span>{e.location}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                        {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                            <div className='col-span-3 text-justice-green text-sm cursor-pointer'>
+                                {openingFields.openingFields.location.map((e, index) => (
+                                    <div onClick={() => onAddChip(e.location)} key={Object.keys(e)}>
+                                        {index !== openingFields.openingFields.location.length - 1 ?
+                                            <span>{e.location}, </span>
+                                        :
+                                            <span>{e.location}</span>
+                                        }
+                                    </div>
+                                ))}
+                            </div>
+                        }
                         <div className='col-span-1 text-justice-stone text-sm font-semibold mr-2'>
                             Terms:
                         </div>
@@ -110,13 +178,33 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                     </div>
                 </div>
                 <div className='flex my-8'>
-                <Link href={`/apply/${openingFields.slug}`}>
-                        <a>
-                            <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
-                                APPLY
-                            </div>
-                        </a>
-                    </Link>
+                    {openingFields.openingFields.agency === 'The Difference Principle' &&
+                        <Link href={`/apply/${openingFields.slug}`}>
+                            <a>
+                                <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                    APPLY
+                                </div>
+                            </a>
+                        </Link>
+                    }
+                    {openingFields.openingFields.agency === 'JusticePoint' &&
+                        <Link href={`/apply/${openingFields.slug}`}>
+                            <a>
+                                <div className='bg-justice-orange text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                    APPLY
+                                </div>
+                            </a>
+                        </Link>
+                    }
+                    {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                        <Link href={`/apply/${openingFields.slug}`}>
+                            <a>
+                                <div className='bg-justice-green text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                    APPLY
+                                </div>
+                            </a>
+                        </Link>
+                    }
                 </div>
             </div>
             <Footer myMenu={footerNav} services={services}/>

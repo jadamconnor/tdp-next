@@ -23,7 +23,9 @@ module.exports = {
         'justice-blue-100': '#EFF7F8',
         'justice-gray': '#585048',
         'justice-brown': '#201915',
-        'justice-stone': '#5A5047'
+        'justice-stone': '#5A5047',
+        'justice-orange': '#F3AF66',
+        'justice-green': '#32D17F',
       },
     },
   },
