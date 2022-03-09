@@ -119,6 +119,18 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-12 py-10'>
                         {aboutFields.executiveTeam[0].bioCard.map((el) => (
                             <div className='w-full' key={el.name}>
+                                <div className='relative w-full h-80 mb-5'>
+                                    <Image
+                                        className='rounded-2xl'
+                                        src={el.image.sourceUrl}
+                                        alt={el.image.altText}
+                                        objectFit='cover'
+                                        layout='fill'
+                                        quality={100}
+                                        placeholder='blur'
+                                        blurDataURL={`/_next/image?url=${el.image.sourceUrl}&w=16&q=1`}
+                                    />
+                                </div>
                                 <div onClick={() => openModal(el)} className='text-justice-blue text-xl font-serif mb-2 cursor-pointer'>
                                     {el.name}
                                 </div>
