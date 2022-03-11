@@ -76,9 +76,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
         filter()
     }
 
-    // TODO: This should be generic and go in FilterBar. It should take any number of generic inputs that are structured so
-    // so they can be iterated over without knowledge of their property names. If we re-introduce categories to
-    // careers, will that achieve this?
+    // TODO: Program to interface! Not to implementation... This shuould be part of the filter bar interface.
     const filter = () => {
         let arr = []
         if (chipsArr.length > 0) {
@@ -89,6 +87,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
             // Now we remove duplicate openings from array
             arr = [...new Map(arr.map(v => [v.id, v])).values()]
             setOpenings(arr)
+            console.log(arr)
         } else {
             setOpenings(jobOpenings)
         }

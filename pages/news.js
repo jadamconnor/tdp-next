@@ -68,7 +68,6 @@ export default function News({ newsItems, primaryNav, footerNav, services }) {
         let arr = []
         if (chipsArr.length > 0) {
             chipsArr.map((chip) => arr.push(...newsItems.filter((newsItem) => newsItem.node.categories.nodes.some((el) => el.name === chip))))
-            arr = [...new Map(arr.map(v => [v.id, v])).values()]
             setFilteredNews(arr)
         } else {
             setFilteredNews(newsItems)
