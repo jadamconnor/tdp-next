@@ -177,17 +177,24 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                         </div>
                     </div>
                 </div>
-                <div className='flex my-8'>
-                    {openingFields.openingFields.agency === 'The Difference Principle' &&
-                        <Link href={`/apply/${openingFields.slug}`}>
-                            <a>
-                                <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
-                                    APPLY
-                                </div>
-                            </a>
-                        </Link>
-                    }
-                    {openingFields.openingFields.agency === 'JusticePoint' &&
+                {openingFields.openingFields.agency === 'The Difference Principle' &&
+                <div className='flex my-8 gap-x-5'>
+                    <Link href={`/apply/${openingFields.slug}`}>
+                        <a>
+                            <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                APPLY
+                            </div>
+                        </a>
+                    </Link>
+                    <a href='/TDPPoster.jpg' target='_blank' rel='noreferrer'>
+                        <div className='bg-justice-blue text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                            THE DIFFERENCE PRINCIPLES
+                        </div>
+                    </a>
+                </div>
+                }
+                {openingFields.openingFields.agency === 'JusticePoint' &&
+                    <div className='flex my-8 gap-x-5'>
                         <Link href={`/apply/${openingFields.slug}`}>
                             <a>
                                 <div className='bg-justice-orange text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
@@ -195,8 +202,15 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                                 </div>
                             </a>
                         </Link>
-                    }
-                    {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                        <a href='/TDPPoster.jpg' target='_blank' rel='noreferrer'>
+                            <div className='bg-justice-orange text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                THE DIFFERENCE PRINCIPLES
+                            </div>
+                        </a>
+                    </div>
+                }
+                {openingFields.openingFields.agency === 'Sirona Recovery' &&
+                    <div className='flex my-8 gap-x-5'>
                         <Link href={`/apply/${openingFields.slug}`}>
                             <a>
                                 <div className='bg-justice-green text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
@@ -204,8 +218,13 @@ export default function JobOpening({ openingFields, primaryNav, footerNav, slug,
                                 </div>
                             </a>
                         </Link>
-                    }
-                </div>
+                        <a href='/TDPPoster.jpg' target='_blank' rel='noreferrer'>
+                            <div className='bg-justice-green text-white text-sm font-bold rounded-lg p-3 tracking-wider'>
+                                THE DIFFERENCE PRINCIPLES
+                            </div>
+                        </a>
+                    </div>
+                }
             </div>
             <Footer myMenu={footerNav} services={services}/>
         </div>
