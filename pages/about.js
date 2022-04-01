@@ -52,7 +52,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
             <div>
                 <Head>
                     <title>About - The Difference Principle</title>
-                    <meta name='description' content='Providing evidence-backed management and administrative services to nonprofit organizations.' />
+                    <meta name='description' content='The Difference Principle Network operates under one primary objective – to provide evidence-backed management and administrative services to nonprofit organizations.' />
                     <link rel='icon' href='/favicon.ico' />
                 </Head>
                 {!hideHeader &&
