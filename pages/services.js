@@ -40,7 +40,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
 
             <Head>
                 <title>Services - The Difference Principle</title>
-                <meta name='description' content='The Difference Principle provides all of the services needed to run business so you can focus on accomplishing your mission.' />
+                <meta cription' content='The Difference Principle provides all of the services needed to run business so you can focus on accomplishing your mission.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>

@@ -77,7 +77,7 @@ export default function News({ newsItems, primaryNav, footerNav, services }) {
         <>
             <Head>
                 <title>News - The Difference Principle</title>
-                <meta name='description' content='We at The Difference Principle have one goal -- to provide evidence-backed management and administrative services to social justice nonprofit organizations.' />
+                <meta cription' content='We at The Difference Principle have one goal -- to provide evidence-backed management and administrative services to social justice nonprofit organizations.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Header myMenu={primaryNav}/>
