@@ -1,12 +1,29 @@
 import { getJobOpenings, getCareersPageFields, getPrimaryMenu, getFooterMenu, getServicesItems } from '../lib/api'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import FilterBar from '../components/filter-bar'
 import Openings from '../components/openings'
 import { useState, useEffect } from 'react'
+import TopWorkplaces from '../components/top-workplaces'
+import toast, { Toaster } from 'react-hot-toast'
 
 let chipsArr = []
+
+const notify = () => {
+    toast.custom(
+        <TopWorkplaces onDismiss={dismiss}/>,
+        {
+            position: 'bottom-right',
+            duration: 40000
+        }
+    )
+}
+
+const dismiss = () => {
+    toast.dismiss()
+}
 
 export async function getStaticProps() {
     const careersFields = await getCareersPageFields()
@@ -28,12 +45,23 @@ export async function getStaticProps() {
 }
 
 export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services }) {
+    const router = useRouter()
 
     const [ openings, setOpenings ] = useState(null)
     const [ chips, setChips ] = useState([])
 
     useEffect(() => {
         setOpenings(jobOpenings)
+        setTimeout(() => {
+            notify()
+        }, 3000)
+
+        router.events.on('routeChangeStart', dismiss )
+
+        return () => {
+            console.log('dismissing toast...')
+            router.events.off('routeChangeStart', dismiss)
+        }
     }, [])
 
     let locations = []
@@ -118,6 +146,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                 </div>
             </div>
             <Openings openings={openings || jobOpenings} onAddChip={addChip}/>
+            <Toaster />
             <Footer myMenu={footerNav} services={services}/>
         </div>
     )
