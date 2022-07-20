@@ -2,13 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/pro-solid-svg-icons'
+import { faBars, faTimes, faUser, faSignOut } from '@fortawesome/pro-solid-svg-icons'
+import netlifyAuth from '../netlifyAuth'
 
 export default function Header({ myMenu }) {
     const [scrollY, setScrollY] = useState(0)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [mobileNav, setMobileNav] = useState(false)
+    let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+    let [user, setUser] = useState(null)
 
     const toggleMobileNav = () => {
         setMobileNav(!mobileNav)
@@ -22,14 +25,32 @@ export default function Header({ myMenu }) {
         
         setPrevScrollPos(currentScrollPos)
     }
+
+    let login = () => {
+        netlifyAuth.authenticate((user) => {
+            setLoggedIn(!!user)
+            setUser(user)
+            netlifyAuth.closeModal()
+        })
+    }
+
+    let logout = () => {
+        netlifyAuth.signout(() => {
+            setLoggedIn(false)
+            setUser(null)
+        })
+    }
     
     useEffect(() => {
+        netlifyAuth.initialize((user) => {
+            setLoggedIn(!!user)
+        })
 
         window.addEventListener('scroll', handleScroll)
         
         return () => window.removeEventListener('scroll', handleScroll)
         
-    }, [prevScrollPos, visible, handleScroll])
+    }, [loggedIn, prevScrollPos, visible, handleScroll])
 
     return (
         <div>
@@ -40,6 +61,26 @@ export default function Header({ myMenu }) {
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
+
+                {loggedIn ? (
+                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
+                            <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
+                                {user && <>{user?.user_metadata.full_name}!</>}
+                            <br /> 
+                            <button className='text-white'>
+                                <FontAwesomeIcon icon={faSignOut}/>
+                            </button>
+                            </div>
+                        </div>
+                        ) : (
+                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
+                                <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
+                                    <button className='text-white'>
+                                        <FontAwesomeIcon icon={faUser}/>
+                                    </button>
+                                </div>
+                            </div>
+                    )}
                     <div className='flex justify-between items-center'>
                         <Link href={'/'}>
                             <a>
