@@ -44,6 +44,7 @@ export default function Header({ myMenu }) {
     useEffect(() => {
         netlifyAuth.initialize((user) => {
             setLoggedIn(!!user)
+            setUser(user)
         })
 
         window.addEventListener('scroll', handleScroll)
@@ -64,11 +65,9 @@ export default function Header({ myMenu }) {
                     {loggedIn ? (
                         <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
                             <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
-                                {user && <>{user?.user_metadata.full_name}!</>}
-                            <br /> 
-                            <button className='text-white'>
-                                <FontAwesomeIcon icon={faSignOut}/>
-                            </button>
+                                <button className='text-white'>
+                                    <FontAwesomeIcon icon={faSignOut}/>
+                                </button>
                             </div>
                         </div>
                         ) : (
