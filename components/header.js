@@ -42,9 +42,9 @@ export default function Header({ myMenu }) {
     }
     
     useEffect(() => {
-        netlifyAuth.initialize((user) => {
-            setLoggedIn(!!user)
-        })
+        // netlifyAuth.initialize((user) => {
+        //     setLoggedIn(!!user)
+        // })
 
         window.addEventListener('scroll', handleScroll)
         
@@ -61,7 +61,7 @@ export default function Header({ myMenu }) {
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
-                    {loggedIn ? (
+                    {/* {loggedIn ? (
                         <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
                             <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                 {user && <>{user?.user_metadata.full_name}!</>}
@@ -79,7 +79,7 @@ export default function Header({ myMenu }) {
                                     </button>
                                 </div>
                             </div>
-                    )}
+                    )} */}
                     <div className='flex justify-between items-center'>
                         <Link href={'/'}>
                             <a>
