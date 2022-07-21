@@ -3,15 +3,12 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faUser, faSignOut } from '@fortawesome/pro-solid-svg-icons'
-import netlifyAuth from '../netlifyAuth'
 
-export default function Header({ myMenu }) {
+export default function Header({ myMenu, onLogin, onLogout, loggedIn }) {
     const [scrollY, setScrollY] = useState(0)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [mobileNav, setMobileNav] = useState(false)
-    let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-    let [user, setUser] = useState(null)
 
     const toggleMobileNav = () => {
         setMobileNav(!mobileNav)
@@ -25,33 +22,14 @@ export default function Header({ myMenu }) {
         
         setPrevScrollPos(currentScrollPos)
     }
-
-    let login = () => {
-        netlifyAuth.authenticate((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-            netlifyAuth.closeModal()
-        })
-    }
-
-    let logout = () => {
-        netlifyAuth.signout(() => {
-            setLoggedIn(false)
-            setUser(null)
-        })
-    }
     
     useEffect(() => {
-        netlifyAuth.initialize((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-        })
 
         window.addEventListener('scroll', handleScroll)
         
         return () => window.removeEventListener('scroll', handleScroll)
         
-    }, [loggedIn, prevScrollPos, visible, handleScroll])
+    }, [prevScrollPos, visible, handleScroll])
 
     return (
         <div>
@@ -63,7 +41,7 @@ export default function Header({ myMenu }) {
             >
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
                     {loggedIn ? (
-                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
+                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={onLogout}>
                             <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                 <button className='text-white'>
                                     <FontAwesomeIcon icon={faSignOut}/>
@@ -71,7 +49,7 @@ export default function Header({ myMenu }) {
                             </div>
                         </div>
                         ) : (
-                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
+                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={onLogin}>
                                 <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                     <button className='text-white'>
                                         <FontAwesomeIcon icon={faUser}/>
