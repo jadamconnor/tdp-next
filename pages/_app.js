@@ -12,38 +12,15 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-import netlifyAuth from '../netlifyAuth'
 
 function MyApp({ Component, pageProps }) {
-    let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-    let [user, setUser] = useState(null)
-
     const router = useRouter()
-
-    let login = () => {
-        netlifyAuth.authenticate((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-            netlifyAuth.closeModal()
-        })
-    }
-
-    let logout = () => {
-        netlifyAuth.signout(() => {
-            setLoggedIn(false)
-            setUser(null)
-        })
-    }
     
     useEffect(() => {
-        netlifyAuth.initialize((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-        })
         
         const handleRouteChange = (url) => {
             gtag.pageview(url)
@@ -54,7 +31,7 @@ function MyApp({ Component, pageProps }) {
             router.events.off('routeChangeComplete', handleRouteChange)
         }
         
-    }, [router.events, loggedIn])
+    }, [router.events])
     
     return (
         <>
@@ -78,7 +55,7 @@ function MyApp({ Component, pageProps }) {
                 }}
             />
             <Script strategy='afterInteractive' src="https://seal-wisconsin.bbb.org/inc/legacy.js"/>
-            <Component onLogin={login} onLogout={logout} loggedIn={loggedIn} user={user} {...pageProps} />
+            <Component {...pageProps} />
         </>
         )
     }
