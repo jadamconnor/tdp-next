@@ -36,11 +36,11 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function Apply({ openingFields, primaryNav, footerNav, services, slug }) {
+export default function Apply({ openingFields, primaryNav, footerNav, services, slug, loggedIn, user, onLogin, onLogout  }) {
 
     return (
         <div>
-            <Header myMenu={primaryNav}/>
+            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
             {/* Intro */}
             <div className='container px-6 xl:px-20 2xl:px-0' key={openingFields.id}>
                 <div className='w-full lg:w-1/2 my-36'>

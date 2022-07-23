@@ -27,7 +27,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function About({ aboutFields, richCTAS, primaryNav, footerNav, services }) {
+export default function About({ aboutFields, richCTAS, primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout }) {
 
     const [modalOpen, setModalOpen] = useState(false)
     const [modalContent, setModalContent] = useState({})
@@ -56,7 +56,7 @@ export default function About({ aboutFields, richCTAS, primaryNav, footerNav, se
                     <link rel='icon' href='/favicon.ico' />
                 </Head>
                 {!hideHeader &&
-                    <Header myMenu={primaryNav}/>
+                    <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
                 }
                 {/* Intro */}
                 <div className='bg-[url("/Spotlogo1.png")] xl:bg-[left_30rem_top_6rem] 2xl:bg-[left_50rem_top_6rem] md:bg-right-top bg-[length:750px_600px] bg-no-repeat h-[500px] lg:h-[400px]'>

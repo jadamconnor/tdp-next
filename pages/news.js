@@ -27,7 +27,7 @@ export async function getStaticProps() {
 
 let chipsArr = []
 
-export default function News({ newsItems, primaryNav, footerNav, services }) {
+export default function News({ newsItems, primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout  }) {
     
     const featNews = newsItems.filter((newsItem) => newsItem.node.newsItemFields.featured === true)
 
@@ -80,7 +80,7 @@ export default function News({ newsItems, primaryNav, footerNav, services }) {
                 <meta name='description' content='The Difference Principle Network operates under one primary objective – to provide evidence-backed management and administrative services to nonprofit organizations.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Header myMenu={primaryNav}/>
+            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
             <div className='container mt-36 px-6  xl:px-20 2xl:px-0'>
                 <div className='font-serif text-4xl text-justice-stone w-fit underline underline-offset-[12px] leading-10 decoration-1 mb-5'>
                     Featured News

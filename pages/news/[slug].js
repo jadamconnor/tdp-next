@@ -38,11 +38,11 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function NewsItem({ newsItem, primaryNav, footerNav, slug, services }) {
+export default function NewsItem({ newsItem, primaryNav, footerNav, slug, services, loggedIn, user, onLogin, onLogout  }) {
     
     return (
         <div>
-            <Header myMenu={primaryNav}/>
+            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
             <div className='container text-justice-blue text-lg mt-28 px-6  xl:px-20 2xl:px-0'>
                 <Link href={'/news'}>
                     <a>

@@ -36,11 +36,11 @@ export async function getStaticPaths() {
 	}
 }
 
-export default function JobOpening({ openingFields, primaryNav, footerNav, slug, services }) {
+export default function JobOpening({ openingFields, primaryNav, footerNav, slug, services, loggedIn, user, onLogin, onLogout  }) {
     
     return (
         <div>
-            <Header myMenu={primaryNav}/>
+            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
             <div className='container my-28 px-6  xl:px-20 2xl:px-0' key={openingFields.id}>
                 <div className='flex flex-wrap justify-between'>
                     <div className='w-full lg:w-1/2 mb-6'>

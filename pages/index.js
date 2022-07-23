@@ -29,7 +29,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Home({ homeFields, richCTAS, newsItems, primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout }) {
+export default function Home({ homeFields, richCTAS, newsItems, primaryNav, footerNav, services, user, loggedIn, onLogin, onLogout }) {
 
     const richHeroImage = homeFields?.richHero[0].backgroundImage.sourceUrl
     const overlayImage = homeFields?.richHero[0].overlayImage.sourceUrl
