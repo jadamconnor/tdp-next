@@ -24,7 +24,7 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn }) {
     }
     
     useEffect(() => {
-        console.log(loggedIn)
+        console.log("logged in:",loggedIn)
 
         window.addEventListener('scroll', handleScroll)
         
