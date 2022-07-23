@@ -19,6 +19,7 @@ import * as gtag from '../lib/gtag'
 import netlifyAuth from '../netlifyAuth'
 
 function MyApp({ Component, pageProps }) {
+    console.log(netlifyAuth)
     let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
     let [user, setUser] = useState(null)
 
@@ -26,8 +27,8 @@ function MyApp({ Component, pageProps }) {
 
     let login = () => {
         netlifyAuth.authenticate((user) => {
-            setUser(user)
             setLoggedIn(!!user)
+            setUser(user)
             netlifyAuth.closeModal()
         })
     }
