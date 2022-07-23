@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faUser, faSignOut } from '@fortawesome/pro-solid-svg-icons'
 
-export default function Header({ myMenu, onLogin, onLogout, loggedIn }) {
+export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
     const [scrollY, setScrollY] = useState(0)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -24,7 +24,7 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn }) {
     }
     
     useEffect(() => {
-        console.log("logged in:",loggedIn)
+        console.log("logged in:",!!user)
 
         window.addEventListener('scroll', handleScroll)
         
