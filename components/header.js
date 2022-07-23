@@ -24,12 +24,13 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn }) {
     }
     
     useEffect(() => {
+        console.log(loggedIn)
 
         window.addEventListener('scroll', handleScroll)
         
         return () => window.removeEventListener('scroll', handleScroll)
         
-    }, [prevScrollPos, visible, handleScroll])
+    }, [prevScrollPos, visible, handleScroll, loggedIn])
 
     return (
         <div>
