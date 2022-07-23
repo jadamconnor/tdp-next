@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         netlifyAuth.authenticate((user) => {
             setLoggedIn(!!user)
             setUser(user)
-            netlifyAuth.closeModal()
+            //netlifyAuth.closeModal()
         })
     }
 
