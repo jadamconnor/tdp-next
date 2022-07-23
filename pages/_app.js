@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         netlifyAuth.authenticate((user) => {
             setLoggedIn(!!user)
             setUser(user)
-            //netlifyAuth.closeModal()
+            netlifyAuth.closeModal()
         })
     }
 
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
             router.events.off('routeChangeComplete', handleRouteChange)
         }
         
-    }, [router.events, loggedIn])
+    }, [router.events, loggedIn, user])
     
     return (
         <>

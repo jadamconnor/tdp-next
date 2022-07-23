@@ -30,7 +30,7 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
         
         return () => window.removeEventListener('scroll', handleScroll)
         
-    }, [prevScrollPos, visible, handleScroll, loggedIn])
+    }, [prevScrollPos, visible, handleScroll, loggedIn, user])
 
     return (
         <div>
