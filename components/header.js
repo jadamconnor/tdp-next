@@ -3,12 +3,16 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faUser, faSignOut } from '@fortawesome/pro-solid-svg-icons'
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/auth-context'
 
-export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
+export default function Header({ myMenu }) {
     const [scrollY, setScrollY] = useState(0)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [mobileNav, setMobileNav] = useState(false)
+
+    const { user, login, logout } = useContext(AuthContext)
 
     const toggleMobileNav = () => {
         setMobileNav(!mobileNav)
@@ -24,14 +28,11 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
     }
     
     useEffect(() => {
-        console.log("logged in:",!!user)
-        console.log("user:",user)
-
         window.addEventListener('scroll', handleScroll)
         
         return () => window.removeEventListener('scroll', handleScroll)
         
-    }, [prevScrollPos, visible, handleScroll, loggedIn, user])
+    }, [prevScrollPos, visible, handleScroll])
 
     return (
         <div>
@@ -42,8 +43,8 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
-                    {loggedIn ? (
-                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={onLogout}>
+                    {!user ? (
+                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
                             <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                 <button className='text-white'>
                                     <FontAwesomeIcon icon={faSignOut}/>
@@ -51,7 +52,7 @@ export default function Header({ myMenu, onLogin, onLogout, loggedIn, user }) {
                             </div>
                         </div>
                         ) : (
-                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={onLogin}>
+                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
                                 <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                     <button className='text-white'>
                                         <FontAwesomeIcon icon={faUser}/>

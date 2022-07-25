@@ -16,35 +16,13 @@ import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-import netlifyAuth from '../netlifyAuth'
+import AuthContextProvider from '../contexts/auth-context'
 
 function MyApp({ Component, pageProps }) {
-    console.log(netlifyAuth)
-    let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-    let [user, setUser] = useState(null)
 
     const router = useRouter()
-
-    let login = () => {
-        netlifyAuth.authenticate((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-            netlifyAuth.closeModal()
-        })
-    }
-
-    let logout = () => {
-        netlifyAuth.signout(() => {
-            setLoggedIn(false)
-            setUser(null)
-        })
-    }
     
     useEffect(() => {
-        netlifyAuth.initialize((user) => {
-            setLoggedIn(!!user)
-            setUser(user)
-        })
         
         const handleRouteChange = (url) => {
             gtag.pageview(url)
@@ -55,18 +33,18 @@ function MyApp({ Component, pageProps }) {
             router.events.off('routeChangeComplete', handleRouteChange)
         }
         
-    }, [router.events, loggedIn, user])
+    }, [router.events])
     
     return (
         <>
             {/* Global Site Tag (gtag.js) - Google Analytics */}
             <Script
-                strategy="afterInteractive"
+                strategy='afterInteractive'
                 src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
             />
             <Script
-                id="gtag-init"
-                strategy="afterInteractive"
+                id='gtag-init'
+                strategy='afterInteractive'
                 dangerouslySetInnerHTML={{
                 __html: `
                     window.dataLayer = window.dataLayer || [];
@@ -78,8 +56,10 @@ function MyApp({ Component, pageProps }) {
                 `,
                 }}
             />
-            <Script strategy='afterInteractive' src="https://seal-wisconsin.bbb.org/inc/legacy.js"/>
-            <Component onLogin={login} onLogout={logout} loggedIn={loggedIn} user={user} {...pageProps} />
+            <Script strategy='afterInteractive' src='https://seal-wisconsin.bbb.org/inc/legacy.js'/>
+            <AuthContextProvider>
+                <Component {...pageProps} />
+            </AuthContextProvider>
         </>
         )
     }
