@@ -21,7 +21,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Contact({ primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout  }) {
+export default function Contact({ primaryNav, footerNav, services, }) {
     
     return (
         <>
@@ -30,7 +30,7 @@ export default function Contact({ primaryNav, footerNav, services, loggedIn, use
                 <meta name='description' content='The Difference Principle Network operates under one primary objective – to provide evidence-backed management and administrative services to nonprofit organizations.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
+            <Header myMenu={primaryNav}/>
             <div className='container mt-36 px-6  xl:px-20 2xl:px-0'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-28'>
                     <div className='col-span-1'>

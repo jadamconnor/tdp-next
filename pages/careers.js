@@ -44,7 +44,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout  }) {
+export default function Careers({ careersFields, jobOpenings, primaryNav, footerNav, services, }) {
     const router = useRouter()
 
     const [ openings, setOpenings ] = useState(null)
@@ -128,7 +128,7 @@ export default function Careers({ careersFields, jobOpenings, primaryNav, footer
                 <meta name='description' content='The Difference Principle is an equal opportunity/affirmative action employer.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
+            <Header myMenu={primaryNav}/>
                 <div className='container flex items-center px-6  xl:px-20 2xl:px-0'>
                     <div className='w-full lg:w-2/3 my-36'>
                         <div className='text-5xl text-justice-stone font-serif mb-3'>

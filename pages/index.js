@@ -47,7 +47,7 @@ export default function Home({ homeFields, richCTAS, newsItems, primaryNav, foot
                 <meta name='description' content='The Difference Principle Network operates under one primary objective – to provide evidence-backed management and administrative services to nonprofit organizations.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
+            <Header myMenu={primaryNav}/>
             {/* Rich Hero */}
             <div className='relative w-full h-[600px] xl:h-[750px]'>
                 <Image

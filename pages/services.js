@@ -25,7 +25,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Services({ servicesFields, richCTAS, primaryNav, footerNav, services, loggedIn, user, onLogin, onLogout  }) {
+export default function Services({ servicesFields, richCTAS, primaryNav, footerNav, services, }) {
 
     const joinCTA = richCTAS.filter((el) => el.heading === 'Join the Network')
 
@@ -43,7 +43,7 @@ export default function Services({ servicesFields, richCTAS, primaryNav, footerN
                 <meta name='description' content='The Difference Principle provides all of the services needed to run business so you can focus on accomplishing your mission.' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Header myMenu={primaryNav} loggedIn={loggedIn} user={user} onLogin={onLogin} onLogout={onLogout}/>
+            <Header myMenu={primaryNav}/>
             {/* Intro */}
             <div className='bg-[url("/Spotlogo2.png")] bg-size xl:bg-[left_30rem_top_3rem] 2xl:bg-[left_50rem_top_2rem] md:bg-right-top bg-[length:650px_800px] xl:bg-[length:650px_900px] bg-no-repeat h-[500px] lg:h-[400px]'>
                 <div className='container flex items-center px-6 xl:px-20 2xl:px-0'>

@@ -28,6 +28,9 @@ export default function Header({ myMenu }) {
     }
     
     useEffect(() => {
+        console.log('logged in:',!!user)
+        console.log('user:',user)
+
         window.addEventListener('scroll', handleScroll)
         
         return () => window.removeEventListener('scroll', handleScroll)
@@ -43,8 +46,8 @@ export default function Header({ myMenu }) {
                     'top-[-150px] bg-white fixed w-full transition-[top] ease-in-out duration-300 z-50 shadow-md'}
             >
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
-                    {!user ? (
-                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
+                    {user ? (
+                        <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
                             <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                 <button className='text-white'>
                                     <FontAwesomeIcon icon={faSignOut}/>
@@ -52,7 +55,7 @@ export default function Header({ myMenu }) {
                             </div>
                         </div>
                         ) : (
-                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
+                            <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
                                 <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
                                     <button className='text-white'>
                                         <FontAwesomeIcon icon={faUser}/>
