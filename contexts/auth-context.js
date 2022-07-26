@@ -16,7 +16,6 @@ const AuthContextProvider = ({ children }) => {
         // on login
         netlifyIdentity.on('login', (user) => {
             setUser(user)
-            console.log(user)
             netlifyIdentity.close()
         })
         

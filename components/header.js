@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faUser, faSignOut } from '@fortawesome/pro-solid-svg-icons'
-import { useContext } from 'react';
+import { useContext } from 'react'
 import { AuthContext } from '../contexts/auth-context'
 
 export default function Header({ myMenu }) {
