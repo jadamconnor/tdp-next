@@ -48,7 +48,7 @@ export default function Header({ myMenu }) {
                 <div className='container py-6 px-6 xl:px-20 2xl:px-0'>
                     {user ? (
                         <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={logout}>
-                            <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
+                            <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2 hover:pt-2 transition-all duration-300 ease-in-out'>
                                 <button className='text-white'>
                                     <FontAwesomeIcon icon={faSignOut}/>
                                 </button>
@@ -56,7 +56,7 @@ export default function Header({ myMenu }) {
                         </div>
                         ) : (
                             <div className='absolute cursor-pointer top-0 xl:right-20 2xl:right-48' onClick={login}>
-                                <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2'>
+                                <div className='bg-justice-blue rounded-b-xl pt-1 px-3 pb-2 hover:pt-2 transition-all duration-300 ease-in-out'>
                                     <button className='text-white'>
                                         <FontAwesomeIcon icon={faUser}/>
                                     </button>
