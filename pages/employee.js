@@ -38,9 +38,7 @@ export default function Employee({ footerNav, primaryNav, services, resources })
             }
             {user?.app_metadata?.roles.includes('Level 1') &&
             <div className='container px-6 xl:px-20 2xl:px-0 my-24'>
-                <div className='unreset' dangerouslySetInnerHTML={{__html: resources.employeeResourceFields.employeeResources}}>
-
-                </div>
+                <div className='unreset' dangerouslySetInnerHTML={{__html: resources.employeeResourceFields.employeeResources}}/>
             </div>
             }
             <Footer myMenu={footerNav} services={services}/>

@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import netlifyIdentity from 'netlify-identity-widget'
 
 export const AuthContext = createContext({
@@ -10,6 +11,7 @@ export const AuthContext = createContext({
 
 const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const router = useRouter()
     
     
     useEffect(() => {
@@ -17,6 +19,8 @@ const AuthContextProvider = ({ children }) => {
         netlifyIdentity.on('login', (user) => {
             setUser(user)
             netlifyIdentity.close()
+            router.push('/employee')
+
         })
         
         // on logout
