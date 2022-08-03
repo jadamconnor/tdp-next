@@ -36,7 +36,7 @@ export default function Employee({ footerNav, primaryNav, services, resources })
                 You do not have permission to view this page.
             </div>
             }
-            {user?.app_metadata?.roles.includes('Level 1') &&
+            {user?.app_metadata?.roles.includes('employee') &&
             <div className='container px-6 xl:px-20 2xl:px-0 my-24'>
                 <div className='unreset' dangerouslySetInnerHTML={{__html: resources.employeeResourceFields.employeeResources}}/>
             </div>

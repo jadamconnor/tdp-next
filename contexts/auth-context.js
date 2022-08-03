@@ -19,8 +19,6 @@ const AuthContextProvider = ({ children }) => {
         netlifyIdentity.on('login', (user) => {
             setUser(user)
             netlifyIdentity.close()
-            router.push('/employee')
-
         })
         
         // on logout
@@ -31,7 +29,10 @@ const AuthContextProvider = ({ children }) => {
         
         // connect with Netlify Identity
         netlifyIdentity.init()
-    }, [])
+
+        user?.app_metadata?.roles.includes('employee') && router.push('/employee')
+
+    }, [user])
     
     const login = () => {
         netlifyIdentity.open()
